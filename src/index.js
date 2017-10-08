@@ -9,7 +9,7 @@ const App = ({ className }) => {
 }
 
 const StyledComponent = styled(App) `
-  background-color: red;
+  background-color: green;
 `;
 
 ReactDOM.render(<StyledComponent />, document.getElementById('app'));
