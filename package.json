@@ -2,7 +2,9 @@
   "scripts": {
     "start": "webpack && nodemon server/bin/www",
     "dev": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "build-image": "sudo docker build -t sneak .",
+    "run-image": "sudo docker run -p 3000:3000 sneak"
   },
   "dependencies": {
     "react": "^16.0.0",
