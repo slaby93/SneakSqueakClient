@@ -2,12 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HappyPack = require('happypack')
-const prodConfig = require('./webpack.config.production')
 
-const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production')
-console.log('Using NODE_ENV:', nodeEnv)
+const nodeEnv = process.env.NODE_ENV || JSON.stringify('production')
 
-const defaultConfig = {
+const config = {
   context: path.join(__dirname, '/'),
   devtool: 'inline-source-map',
   entry: [
@@ -43,8 +41,9 @@ const defaultConfig = {
       'process.env': {
         'NODE_ENV': nodeEnv
       }
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 }
 
-module.exports = nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig
+module.exports = config
