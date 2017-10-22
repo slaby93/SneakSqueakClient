@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HappyPack = require('happypack')
-
+const CompressionPlugin = require('compression-webpack-plugin')
 const nodeEnv = process.env.NODE_ENV || JSON.stringify('production')
 
 const config = {
@@ -42,7 +42,14 @@ const config = {
         'NODE_ENV': nodeEnv
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
   ]
 }
 

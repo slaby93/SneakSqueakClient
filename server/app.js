@@ -15,6 +15,12 @@ const root = path.join(__dirname, '/public')
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz'
+  res.set('Content-Encoding', 'gzip')
+  next()
+})
+
 app.use(favicon())
 app.use(logger('dev'))
 app.use(bodyParser.json())

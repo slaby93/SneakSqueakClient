@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HappyPack = require('happypack')
 const prodConfig = require('./webpack.config.production')
-
 const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production')
 console.log('Using NODE_ENV:', nodeEnv)
 
@@ -43,7 +42,8 @@ const defaultConfig = {
       'process.env': {
         'NODE_ENV': nodeEnv
       }
-    })
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ]
 }
 
