@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App/> 1`] = `
+exports[`<App/> basic render 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -17,12 +17,36 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": "App",
-      "className": undefined,
+      "children": Array [
+        undefined,
+        <button
+          className={undefined}
+          onClick={undefined}
+        >
+          FETCH USERS
+        </button>,
+        undefined,
+      ],
     },
     "ref": null,
-    "rendered": "App",
-    "type": "span",
+    "rendered": Array [
+      undefined,
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "FETCH USERS",
+          "className": undefined,
+          "onClick": undefined,
+        },
+        "ref": null,
+        "rendered": "FETCH USERS",
+        "type": "button",
+      },
+      undefined,
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -30,12 +54,36 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": "App",
-        "className": undefined,
+        "children": Array [
+          undefined,
+          <button
+            className={undefined}
+            onClick={undefined}
+          >
+            FETCH USERS
+          </button>,
+          undefined,
+        ],
       },
       "ref": null,
-      "rendered": "App",
-      "type": "span",
+      "rendered": Array [
+        undefined,
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "FETCH USERS",
+            "className": undefined,
+            "onClick": undefined,
+          },
+          "ref": null,
+          "rendered": "FETCH USERS",
+          "type": "button",
+        },
+        undefined,
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

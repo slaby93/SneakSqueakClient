@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export class App extends React.Component {
+export const App = class extends React.PureComponent {
   parseUsers (users) {
     return users && users.map(({id, name}) =>
       <p key={id}>{name}</p>
