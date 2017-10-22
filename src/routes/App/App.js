@@ -27,7 +27,7 @@ export class App extends React.Component {
 }
 
 const StyledComponent = styled(App)`
-background-color: red;
+background-color: green;
 `
 
 export default StyledComponent
