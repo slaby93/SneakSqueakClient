@@ -7,7 +7,8 @@
     "run-image": "sudo docker run -p 3000:3000 sneak",
     "test": "jest",
     "coverage": "jest --coverage",
-    "format": "standard --fix"
+    "format": "standard --fix",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "react": "^16.0.0",
@@ -24,9 +25,12 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "cypress": "^1.0.2",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
     "express": "^4.16.1",
