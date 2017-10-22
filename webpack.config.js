@@ -10,6 +10,7 @@ const config = {
   ],
   output: {
     path: path.join(__dirname, '/server/public'),
+    chunkFilename: '[name].chunk.js',
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -20,33 +21,7 @@ const config = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
       },
-            { test: /(\.css|\.scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-            { test: /\.svg/, loader: 'svg-url-loader' },
-      {
-        test: /\.(gif|png|jpe?g)$/i,
-        loaders: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            query: {
-              bypassOnDebug: true,
-              mozjpeg: {
-                progressive: true
-              },
-              gifsicle: {
-                interlaced: false
-              },
-              optipng: {
-                optimizationLevel: 4
-              },
-              pngquant: {
-                quality: '75-90',
-                speed: 3
-              }
-            }
-          }
-        ]
-      }
+            { test: /(\.css|\.scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] }
     ]
   },
   plugins: [
