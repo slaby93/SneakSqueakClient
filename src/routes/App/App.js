@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import {
+  Link
+} from 'react-router-dom'
 
 export const App = class extends React.PureComponent {
   parseUsers (users) {
@@ -22,6 +25,7 @@ export const App = class extends React.PureComponent {
       {
           !isRequesting && this.parseUsers(users)
         }
+      <Link to='/a'>A</Link>
     </div>
   }
 }

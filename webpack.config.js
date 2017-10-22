@@ -7,6 +7,7 @@ const config = {
   devtool: 'inline-source-map',
   entry: [
     'babel-polyfill',
+    'whatwg-fetch',
     './src/index.js'
   ],
   output: {

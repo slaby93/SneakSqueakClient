@@ -112,6 +112,10 @@ escape-html@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.1.tgz#181a286ead397a39a92857cfb1d43052e356bff0"
 
+express-history-api-fallback@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/express-history-api-fallback/-/express-history-api-fallback-2.2.1.tgz#3a2ad27f7bebc90fc533d110d7c6d83097bcd057"
+
 express@~4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/express/-/express-4.0.0.tgz#274dc82933c9f574cc38a0ce5ea8172be9c6b094"

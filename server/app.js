@@ -1,6 +1,7 @@
 var express = require('express')
 var path = require('path')
 var favicon = require('static-favicon')
+const fallback = require('express-history-api-fallback')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
@@ -8,6 +9,7 @@ var bodyParser = require('body-parser')
 var routes = require('./routes/index')
 
 var app = express()
+const root = path.join(__dirname, '/public')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -19,6 +21,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(fallback('index.html', { root: root }))
 
 app.use('/', routes)
 
