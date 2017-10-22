@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HappyPack = require('happypack')
 
 const config = {
   context: path.join(__dirname, '/'),
@@ -19,7 +20,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader'
+        loader: 'happypack/loader'
       },
             { test: /(\.css|\.scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] }
     ]
@@ -27,6 +28,10 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html'
+    }),
+    new HappyPack({
+      loaders: ['babel-loader'],
+      threads: 4
     })
   ]
 }

@@ -27,7 +27,7 @@ export const App = class extends React.PureComponent {
 }
 
 const StyledComponent = styled(App)`
-background-color: green;
+background-color: pink;
 `
 
 export default StyledComponent

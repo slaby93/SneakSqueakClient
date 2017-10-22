@@ -13,7 +13,6 @@ export default class AsyncComponent extends PureComponent {
     if (!this.state.Component) {
       this.props.moduleProvider().then((Component) => {
         this.setState({ Component: Component.default })
-        console.log('COMPONENT', Component.default)
       })
     }
   }

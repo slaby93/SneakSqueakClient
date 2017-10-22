@@ -196,10 +196,6 @@ morgan@~1.0.0:
   dependencies:
     bytes "0.3.0"
 
-ms@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
-
 negotiator@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.3.0.tgz#706d692efeddf574d57ea9fb1ab89a4fa7ee8f60"
