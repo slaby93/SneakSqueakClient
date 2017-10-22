@@ -7,7 +7,10 @@ const AppContainer = (props) => {
   return <App {...props} />
 }
 
-function mapStateToProps ({users: {isRequesting, users}}) {
+function mapStateToProps (state) {
+  const isRequesting = state.getIn(['users', 'isRequesting'])
+  const users = state.getIn(['users', 'users'])
+
   return {
     isRequesting,
     users

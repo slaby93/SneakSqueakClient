@@ -6,8 +6,8 @@ import {
 
 export const App = class extends React.PureComponent {
   parseUsers (users) {
-    return users && users.map(({id, name}) =>
-      <p key={id}>{name}</p>
+    return users && users.map((item) =>
+      <p key={item.get('id')}>{item.get('name')}</p>
     )
   }
 
