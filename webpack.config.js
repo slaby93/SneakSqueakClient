@@ -45,7 +45,11 @@ const defaultConfig = {
       }
     }),
     new webpack.optimize.ModuleConcatenationPlugin()
-  ]
+  ],
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000
+  }
 }
 
 const prodConfig = {
@@ -109,10 +113,16 @@ const PWAConfig = {
   },
   plugins: [
     new CopyWebpackPlugin(
-      [{
-        from: 'src/manifest.json',
-        to: './manifest.json'
-      }]
+      [
+        {
+          from: 'src/manifest.json',
+          to: './manifest.json'
+        },
+        {
+          from: 'src/resources/icons',
+          to: './icons'
+        }
+      ]
     )
   ]
 }

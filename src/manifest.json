@@ -2,15 +2,11 @@
   "name": "Sneak Squeak",
   "short_name": "Squeak",
   "start_url": "/",
+  "author":"Daniel Słaby",
   "display": "standalone",
-  "background_color": "#3366ff",
+  "background_color": "#f7f8f9",
   "description": "Find your teammates and enjoy sport!",
   "icons": [
-    {
-      "src": "src/resources/icons/shoes.svg",
-      "sizes": "48x48",
-      "type": "image/svg"
-    },
     {
       "src": "src/resources/icons/shoesx128.png",
       "sizes": "128x128",
