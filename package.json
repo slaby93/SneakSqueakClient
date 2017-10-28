@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack && nodemon server/bin/www",
-    "dev": "NODE_ENV=\"development\" webpack-dev-server --port 3000 --historyApiFallback",
+    "dev": "NODE_ENV=\"development\" webpack-dev-server --host 0.0.0.0 --port 3000 --historyApiFallback",
     "build": "webpack",
     "build-image": "sudo docker build -t sneak .",
     "run-image": "sudo docker run -p 3000:3000 sneak",
@@ -35,6 +35,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.2.0",
     "cypress": "^1.0.2",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",

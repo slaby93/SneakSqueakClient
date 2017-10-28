@@ -1,0 +1,31 @@
+{
+  "name": "Sneak Squeak",
+  "short_name": "Squeak",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3366ff",
+  "description": "Find your teammates and enjoy sport!",
+  "icons": [
+    {
+      "src": "src/resources/icons/shoes.svg",
+      "sizes": "48x48",
+      "type": "image/svg"
+    },
+    {
+      "src": "src/resources/icons/shoesx128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "src/resources/icons/shoesx256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "src/resources/icons/shoesx512.svg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+
+  ]
+}
