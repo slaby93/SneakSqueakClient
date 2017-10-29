@@ -17,7 +17,6 @@ export function * test () {
     const response = yield fetch('https://jsonplaceholder.typicode.com/users', {
       method: 'GET'
     })
-    console.log('RESPONSE', response)
     const users = yield response.json()
     yield put(FETCH_USERS_SUCCESS({ users }))
   } catch (error) {
