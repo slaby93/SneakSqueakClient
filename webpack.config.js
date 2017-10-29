@@ -5,6 +5,8 @@ const HappyPack = require('happypack')
 const CompressionPlugin = require('compression-webpack-plugin')
 const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
+const DIST_DIR = path.join(__dirname, '/server/public')
 console.log('Using NODE_ENV:', nodeEnv)
 
 const defaultConfig = {
@@ -39,6 +41,18 @@ const defaultConfig = {
       loaders: ['babel-loader'],
       threads: 4
     }),
+    new CopyWebpackPlugin(
+      [
+        {
+          from: 'src/manifest.json',
+          to: './manifest.json'
+        },
+        {
+          from: 'src/resources/icons',
+          to: './icons'
+        }
+      ]
+    ),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': nodeEnv
@@ -89,29 +103,6 @@ const prodConfig = {
         'NODE_ENV': nodeEnv
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8
-    })
-  ]
-}
-
-const PWAConfig = {
-  context: path.join(__dirname, '/'),
-  devtool: 'inline-source-map',
-  entry: [
-    './src/serviceworker.js'
-  ],
-  output: {
-    path: path.join(__dirname, '/server/public'),
-    filename: 'serviceworker.js',
-    publicPath: '/'
-  },
-  plugins: [
     new CopyWebpackPlugin(
       [
         {
@@ -121,14 +112,22 @@ const PWAConfig = {
         {
           from: 'src/resources/icons',
           to: './icons'
+        },
+        {
+          from: './node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.0.js',
+          to: './workbox-sw.prod.v2.1.0.js'
+        },
+        {
+          from: './node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.0.js.map',
+          to: './workbox-sw.prod.v2.1.0.js.map'
         }
       ]
-    )
+    ),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 }
 
 const configs = [
-  nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig,
-  PWAConfig
+  nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig
 ]
 module.exports = configs

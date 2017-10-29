@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "start": "webpack && pm2 start pm2Startup.json && pm2 monit", 
+    "start": "webpack && yarn pwa && pm2 start pm2Startup.json && pm2 monit",
     "stop": "pm2 delete WebServer",
+    "pwa": "workbox inject:manifest",
     "dev": "NODE_ENV=\"development\" webpack-dev-server --host 0.0.0.0 --port 3000 --historyApiFallback",
     "build": "webpack",
     "build-image": "sudo docker build -t sneak .",
@@ -51,7 +52,9 @@
     "standard": "^10.0.3",
     "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack-dev-server": "^2.9.1",
+    "workbox-sw": "^2.1.0",
+    "workbox-webpack-plugin": "^2.1.0"
   },
   "jest": {
     "unmockedModulePathPatterns": [
