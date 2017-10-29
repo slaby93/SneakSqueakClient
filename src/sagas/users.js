@@ -15,7 +15,8 @@ export function * test () {
   try {
     yield fakeTimeout(1000)
     const response = yield fetch('https://jsonplaceholder.typicode.com/users', {
-      method: 'GET'
+      method: 'GET',
+      mode: 'no-cors'
     })
     const users = yield response.json()
     yield put(FETCH_USERS_SUCCESS({ users }))

@@ -1,0 +1,8 @@
+{ 
+  "apps" : [{ 
+    "name":"WebServer", 
+    "script"    : "server/bin/www", 
+    "instances" : "max", 
+    "exec_mode" : "cluster"  
+  }] 
+}
