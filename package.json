@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "webpack && nodemon server/bin/www",
+    "start": "webpack && pm2 start pm2Startup.json && pm2 monit", 
+    "stop": "pm2 delete WebServer",
     "dev": "NODE_ENV=\"development\" webpack-dev-server --host 0.0.0.0 --port 3000 --historyApiFallback",
     "build": "webpack",
     "build-image": "sudo docker build -t sneak .",
