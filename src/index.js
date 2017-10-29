@@ -7,8 +7,9 @@ import Router from './routes/router'
 ReactDOM.render(<Provider store={store}>
   <Router />
 </Provider>, document.getElementById('app'))
+const NODE_ENV = process.env.NODE_ENV
 
-if ('serviceWorker' in navigator) {
+if (NODE_ENV === 'production' && 'serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js')
