@@ -1,12 +1,13 @@
 {
   "scripts": {
     "start": "webpack && yarn pwa && pm2 start pm2Startup.json && pm2 monit",
-    "stop": "pm2 delete WebServer",
+    "stop": "pm2 delete web-client-service",
+    "monit": "pm2 monit",
     "pwa": "workbox inject:manifest",
     "dev": "NODE_ENV=\"development\" webpack-dev-server --host 0.0.0.0 --port 3000 --historyApiFallback",
     "build": "webpack",
-    "build-image": "sudo docker build -t sneak .",
-    "run-image": "sudo docker run -p 3000:3000 sneak",
+    "build-image": "sudo docker build -t web-client-service .",
+    "run-image": "sudo docker run -p 3000:3000 web-client-service",
     "test": "jest",
     "coverage": "jest --coverage",
     "format": "standard --fix",
@@ -25,7 +26,15 @@
     "redux-immutable": "^4.0.0",
     "redux-saga": "^0.16.0",
     "styled-components": "^2.2.1",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~4.0.0",
+    "express-history-api-fallback": "^2.2.1",
+    "jade": "~1.3.0",
+    "morgan": "~1.0.0",
+    "static-favicon": "~1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -46,7 +55,6 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.1",
     "morgan": "^1.9.0",
-    "nodemon": "^1.12.1",
     "pm2": "^2.7.2",
     "raf": "^3.4.0",
     "serve-favicon": "^2.4.5",
