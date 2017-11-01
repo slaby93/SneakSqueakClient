@@ -5,6 +5,7 @@
   "author":"Daniel Słaby",
   "display": "standalone",
   "background_color": "#f7f8f9",
+  "theme_color": "#db5945",
   "description": "Find your teammates and enjoy sport!",
   "icons": [
     {
