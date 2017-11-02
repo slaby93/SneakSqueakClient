@@ -2,7 +2,11 @@ version: "3"
 services:
   web-client-service:
     image: gsdsolutions/web-client-service:latest
+    networks:
+      - frontend
     ports:
      - "3000:3000"
     deploy:
       replicas: 3
+networks:
+  frontend:
