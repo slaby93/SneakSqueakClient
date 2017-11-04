@@ -2,11 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HappyPack = require('happypack')
-const CompressionPlugin = require('compression-webpack-plugin')
 const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin')
-const DIST_DIR = path.join(__dirname, '/server/public')
 console.log('Using NODE_ENV:', nodeEnv)
 
 const defaultConfig = {
@@ -127,7 +124,4 @@ const prodConfig = {
   ]
 }
 
-const configs = [
-  nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig
-]
-module.exports = configs
+module.exports = nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig
