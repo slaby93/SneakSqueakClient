@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import Router from './routes/router'
+import './gloablStyles'
 
 ReactDOM.render(<Provider store={store}>
   <Router />

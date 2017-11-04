@@ -15,18 +15,7 @@ export const App = class extends React.PureComponent {
     const { className, fetchUsers, isRequesting, users } = this.props
     return (
       <div>
-        {isRequesting && <span>Loading ...</span>}
-        {
-        !isRequesting && <button
-          onClick={fetchUsers}
-          className={className}>
-        FETCH USERS
-        </button>
-        }
-        {
-          !isRequesting && this.parseUsers(users)
-        }
-        <Link to='/a'>A</Link>
+
       </div>
     )
   }
