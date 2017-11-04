@@ -14,3 +14,9 @@
 
 
 docker stack deploy -c docker-compose.yml sneaksqueak
+
+#to remove
+# docker stack rm sneaksqueak 
+
+networks:
+      - frontend
