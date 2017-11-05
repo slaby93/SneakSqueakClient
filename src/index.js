@@ -1,13 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import store from './store'
+import { ConnectedRouter } from 'react-router-redux'
+import store, {history} from './store/store'
 import Router from './routes/router'
 import './gloablStyles'
 
-ReactDOM.render(<Provider store={store}>
-  <Router />
-</Provider>, document.getElementById('app'))
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Router />
+    </ConnectedRouter>
+  </Provider>
+, document.getElementById('app'))
+
 const NODE_ENV = process.env.NODE_ENV
 
 if (NODE_ENV === 'production' && 'serviceWorker' in navigator) {
