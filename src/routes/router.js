@@ -1,16 +1,18 @@
 import React from 'react'
 import {
-  Route
+  BrowserRouter as Router,
+  Route,
+  Switch
 } from 'react-router-dom'
 
 import App from './App'
-import TestRoute from './TestRoute'
 
 export default () => {
   return (
-    <div>
-      <Route exact path='/' component={App} />
-      <Route path='/testRoute' component={TestRoute} />
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/' component={App} />
+      </Switch>
+    </Router>
   )
 }

@@ -19,11 +19,10 @@ export default class AsyncComponent extends PureComponent {
 
   render () {
     const { Component } = this.state
-
-    // The magic happens here!
+    
     return (
       <div>
-        {Component ? <Component /> : <span>Loading</span>}
+        {Component ? <Component {...this.props} /> : <span>Loading</span>}
       </div>
     )
   }

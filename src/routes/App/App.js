@@ -2,10 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import {
   Link,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom'
-import store from './../../store'
-import { push } from 'react-router-redux'
 
 export const App = class extends React.PureComponent {
   parseUsers (users) {
@@ -19,10 +18,8 @@ export const App = class extends React.PureComponent {
     return (
       <div className={className}>
         <div>
-          <button onClick={() => {
-            store.dispatch(push('/testRoute'))
-          }}>
-          GO TO TEST
+          <button>
+            <Link to='/a'>LINK TO A</Link>
           </button>
           <button>
             <Link to='/b'>LINK TO B</Link>
@@ -31,11 +28,14 @@ export const App = class extends React.PureComponent {
             <Link to='/c'>LINK TO C</Link>
           </button>
         </div>
-
-        <div />
-        <Route path='/a' component={A} />
-        <Route path='/b' component={B} />
-        <Route path='/c' component={C} />
+        <div >
+          <span> VALUE : </span> <br />
+          <Switch>
+            <Route exact path='/a' component={A} />
+            <Route exact path='/b' component={B} />
+            <Route exact path='/c' component={C} />
+          </Switch>
+        </div>
       </div>
     )
   }
