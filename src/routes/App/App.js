@@ -5,6 +5,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 export const App = class extends React.PureComponent {
   parseUsers (users) {
@@ -14,7 +15,7 @@ export const App = class extends React.PureComponent {
   }
 
   render () {
-    const { className } = this.props
+    const { className, location } = this.props
     return (
       <div className={className}>
         <div>
@@ -29,12 +30,19 @@ export const App = class extends React.PureComponent {
           </button>
         </div>
         <div >
-          <span> VALUE : </span> <br />
-          <Switch>
-            <Route exact path='/a' component={A} />
-            <Route exact path='/b' component={B} />
-            <Route exact path='/c' component={C} />
-          </Switch>
+
+          <TransitionGroup>
+            <CSSTransition
+              classNames='fade'
+              timeout={1000}
+              key={location.key}>
+              <Switch location={location}>
+                <Route exact path='/a' component={A} />
+                <Route exact path='/b' component={B} />
+                <Route exact path='/c' component={C} />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
         </div>
       </div>
     )
