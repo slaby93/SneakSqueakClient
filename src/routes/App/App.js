@@ -8,6 +8,21 @@ import {
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 export const App = class extends React.PureComponent {
+  constructor () {
+    super()
+    this.state = {
+      showBlinker: false
+    }
+  }
+
+  componentDidMount () {
+    setInterval(() => {
+      this.setState({
+        showBlinker: !this.state.showBlinker
+      })
+    }, 3500)
+  }
+
   parseUsers (users) {
     return users && users.map((item) =>
       <p key={item.get('id')}>{item.get('name')}</p>
@@ -16,8 +31,17 @@ export const App = class extends React.PureComponent {
 
   render () {
     const { className, location } = this.props
+    const { showBlinker } = this.state
     return (
       <div className={className}>
+        <CSSTransition
+          classNames='blinker'
+          timeout={3000}
+          key={'blinker'}
+          in={showBlinker}
+          >
+          <Blinker />
+        </CSSTransition>
         <div>
           <button>
             <Link to='/a'>LINK TO A</Link>
@@ -51,6 +75,12 @@ export const App = class extends React.PureComponent {
 
 const StyledComponent = styled(App)`
 background-color: pink;
+`
+
+const Blinker = styled.div`
+  border: 2px solid black;
+  width: 300px;
+  height: 300px;
 `
 
 const A = () => {
