@@ -65,6 +65,7 @@
     "raf": "^3.4.0",
     "serve-favicon": "^2.4.5",
     "standard": "^10.0.3",
+    "svg-url-loader": "^2.3.0",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.9.0",

@@ -13,7 +13,8 @@ const commonModule = {
       exclude: /(node_modules|bower_components)/,
       loader: 'happypack/loader'
     },
-          { test: /(\.css|\.scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+    { test: /(\.css|\.scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+    {test: /\.svg/, loader: 'svg-url-loader'},
     {
       test: /\.(gif|png|jpe?g)$/i,
       loader: [
