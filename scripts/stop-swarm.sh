@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker service rm web-client-service
+docker stack rm sneaksqueak
 docker swarm leave -f

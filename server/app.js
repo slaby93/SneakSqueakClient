@@ -11,7 +11,9 @@ var routes = require('./routes/index')
 
 var app = express()
 const root = path.join(__dirname, '/public')
-app.use(compression())
+app.use(compression({
+  level: 9
+}))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
