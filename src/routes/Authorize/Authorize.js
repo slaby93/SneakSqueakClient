@@ -8,6 +8,7 @@ import {
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import authorizeLoginImage from './../../resources/images/authorize_background.jpeg'
 
 export const Authorize = ({className, match, location}) => {
   return (<div className={className}>
@@ -25,7 +26,11 @@ const StyledComponent = styled(Authorize)`
   flex-grow: 1;
   flex-direction: column;
   align-items: center;
+  background-image: url(${authorizeLoginImage});
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 20px;
+  
 `
 
 export default StyledComponent
