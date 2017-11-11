@@ -9,7 +9,7 @@ import './gloablStyles'
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Router />
+        <Router />
     </ConnectedRouter>
   </Provider>
 , document.getElementById('app'))
