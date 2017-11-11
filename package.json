@@ -37,6 +37,7 @@
     "redux-saga": "^0.16.0",
     "static-favicon": "~1.0.0",
     "styled-components": "^2.2.1",
+    "styled-tools": "^0.2.2",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

@@ -1,11 +1,17 @@
 import { injectGlobal } from 'styled-components'
 
 injectGlobal`
-
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:100,200,300,400,500,600,700,800,900');
+  * {
+    font-family: 'Barlow', sans-serif;
+  }
   html, body, #app {
     width: 100%;
     height: 100%;
     margin: 0;
+  }
+  span, p, a {
+    color: white;
   }
 
   .fade-enter {
