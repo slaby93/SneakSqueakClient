@@ -25,7 +25,7 @@ const StyledComponent = styled(Authorize)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  padding: 0 20px;
 `
 
 export default StyledComponent

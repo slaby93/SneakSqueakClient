@@ -26,7 +26,7 @@ export const Welcome = ({className}) => {
         <FancyOr><span>OR</span></FancyOr>
         <Button grow>Create account with Email</Button>
         <div>
-          <span>Aready a member?&nbsp;</span><NavLink to='/'><span>Log In</span></NavLink>
+          <span>Aready a member?&nbsp;</span><Button text><NavLink to='/'><span>Log In</span></NavLink></Button>
         </div>
       </DetailedAutorizationBox>
     </div>
