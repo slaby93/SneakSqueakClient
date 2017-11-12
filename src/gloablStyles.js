@@ -1,17 +1,16 @@
 import { injectGlobal } from 'styled-components'
 
 injectGlobal`
-@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:100,200,300,400,500,600,700,800,900');
-  * {
-    font-family: 'Barlow', sans-serif;
-  }
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+
   html, body, #app {
-    width: 100%;
-    height: 100%;
     margin: 0;
   }
-  span, p, a {
-    color: white;
+
+  html, button {
+    font-family: 'Montserrat','Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
   .fade-enter {

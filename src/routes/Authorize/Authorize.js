@@ -8,6 +8,7 @@ import {
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import authorizeBackgroundImage from './../../resources/images/authorize_background.jpeg'
 
 export const Authorize = ({className, match, location}) => {
   return (<div className={className}>
@@ -26,7 +27,6 @@ const StyledComponent = styled(Authorize)`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  
 `
 
 export default StyledComponent

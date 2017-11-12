@@ -12,7 +12,7 @@ const Styled = styled(GlobalWrapper)`
   display: flex;
   flex-grow: 1;
   height: 100%;
-  background-color: #0e0e0e;
+  background-color: white;
 `
 
 export default Styled

@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled, {css} from 'styled-components'
+import { prop, ifProp } from 'styled-tools'
 
 export class Icon extends React.PureComponent {
   translateIcon (icon) {
@@ -20,7 +22,7 @@ export class Icon extends React.PureComponent {
   }
 
   render () {
-    const {src, className, ...props} = this.props
+    const {src, className, size, ...props} = this.props
     const translatedIcon = this.translateIcon(src)
 
     return (
@@ -29,10 +31,24 @@ export class Icon extends React.PureComponent {
     )
   }
 }
+const StyledComponent = styled(Icon)`
+  svg {
+    height: ${prop('height', '20')}px;
+    width: ${prop('width', '20')}px;
 
+  ${ifProp('size', css`
+      height: ${prop('size')}px;
+      width: ${prop('size')}px;
+  `)}
+
+  ${ifProp('color', css`
+      fill: ${prop('color')};
+  `)}
+  }
+`
 Icon.propTypes = {
   src: PropTypes.string.isRequired,
   className: PropTypes.string
 }
 
-export default Icon
+export default StyledComponent

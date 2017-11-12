@@ -19,11 +19,9 @@ export default class AsyncComponent extends PureComponent {
 
   render () {
     const { Component } = this.state
-    
+
     return (
-      <div>
-        {Component ? <Component {...this.props} /> : <span>Loading</span>}
-      </div>
+        Component ? <Component {...this.props} /> : <span>Loading</span>
     )
   }
 };
