@@ -6,11 +6,21 @@ injectGlobal`
 
   html, body, #app {
     margin: 0;
+    min-height: 100%;
+    display: flex;
+    flex-grow: 1;
   }
 
   html, button {
     font-family: 'Montserrat','Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    font-size: 20px;
+    color: #e05454;
+    text-decoration: none;
+    font-weight: 500;
   }
 
   .fade-enter {

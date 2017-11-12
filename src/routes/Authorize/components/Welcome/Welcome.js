@@ -5,26 +5,29 @@ import SVGIcon from './../../../../components/general/SVGIcon'
 import Button from './../../../../components/general/Button'
 import GoogleGIcon from './../../../../resources/icons/Google__G__Logo.svg'
 import FacebookIcon from './../../../../resources/icons/facebook-F-logo.svg'
+import {NavLink} from 'react-router-dom'
 
 export const Welcome = ({className}) => {
   return (
     <div className={className}>
       <WelcomeBox>
         <span>SneakSqueak</span>
-        <SVGIcon size={120} src={logo} />
+        <SVGIcon src={logo} />
       </WelcomeBox>
       <DetailedAutorizationBox>
-        <Button limitWidth color='black' grow>
-          <span>Log in with &nbsp;</span>
+        <Button color='black' grow>
+          <span>Sign in with &nbsp;</span>
           <SVGIcon size={20} src={GoogleGIcon} />
         </Button>
-        <Button color='white' noBorder limitWidth bgColor='#6b9aff' grow>
-          <span>Log in with &nbsp;</span>
+        <Button color='white' noBorder bgColor='#6b9aff' grow>
+          <span>Sign in with &nbsp;</span>
           <SVGIcon height={24} width={20} color='white' src={FacebookIcon} />
         </Button>
-        <FancyOr>Or</FancyOr>
-        <Button limitWidth grow>SignUp with Email</Button>
-        <span>Aready a member? Sign In</span>
+        <FancyOr><span>OR</span></FancyOr>
+        <Button grow>Create account with Email</Button>
+        <div>
+          <span>Aready a member?&nbsp;</span><NavLink to='/'><span>Log In</span></NavLink>
+        </div>
       </DetailedAutorizationBox>
     </div>
   )
@@ -33,8 +36,9 @@ export const Welcome = ({className}) => {
 const StyledComponent = styled(Welcome)`
   display: grid;
   height: 100%;
-  width: 80%;
-  margin-top: 20%;
+  width: -webkit-fill-available;
+  max-width: 300px;
+  margin-top: 10%;
   grid-template-rows: 25% auto;
 
   @media screen and (orientation:landscape) {
@@ -48,6 +52,15 @@ const WelcomeBox = styled.div`
   align-items: center;
   font-size: 32px;
   font-weight: 600;
+  svg {
+    --size: 60px;
+    width: var(--size);
+    height: var(--size);
+
+    @media (min-height: 510px){
+      --size: 100px;
+    }
+  }
 `
 
 const DetailedAutorizationBox = styled.div`
@@ -61,9 +74,32 @@ const DetailedAutorizationBox = styled.div`
   }
 `
 
-const FancyOr = styled.span`
-  font-size: 20px;
+const FancyOr = styled.div`
+  font-size: 15px;
+  color: #545454;
   font-weight: 400;
-  margin-bottom: 8px;`
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  --marginSize: 5px;
+  --color: #d2d2d2;
+  &:before, &:after {
+    content: '';
+    border-bottom: 1px solid var(--color);
+    width: 100%;
+    height: 1px;
+    display: block;
+  }
+  &:before {
+    margin-right: var(--marginSize);
+  }
+  &:after {
+    margin-left: var(--marginSize);
+  }
+  `
 
 export default StyledComponent
