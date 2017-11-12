@@ -35,14 +35,19 @@ export const Welcome = ({className}) => {
 
 const StyledComponent = styled(Welcome)`
   display: grid;
-  height: 100%;
   width: -webkit-fill-available;
   max-width: 300px;
   margin-top: 10%;
   grid-template-rows: 25% auto;
-
+  
   @media screen and (orientation:landscape) {
     margin-top: 5%;
+  }
+
+  @media (min-width: 400px) and (min-height: 600px) {
+    border: 1px solid #e8e8e8;
+    padding: 30px;
+    box-shadow: 0px 0px 10px 1px gainsboro;
   }
 `
 const WelcomeBox = styled.div`
