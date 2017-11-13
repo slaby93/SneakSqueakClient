@@ -8,15 +8,18 @@ import {
 import Welcome from './components/Welcome'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import ShadowWrapper from './../../components/layout/ShadowWrapper'
 
 export const Authorize = ({className, match, location}) => {
   return (<div className={className}>
-    <Switch location={location}>
-      <Route exact path={`${match.url}/`} component={Welcome} />
-      <Route exact path={`${match.url}/login`} component={Login} />
-      <Route exact path={`${match.url}/register`} component={SignUp} />
-      <Redirect to={`${match.url}/`} />
-    </Switch>
+    <ShadowWrapper>
+      <Switch location={location}>
+        <Route exact path={`${match.url}/`} component={Welcome} />
+        <Route exact path={`${match.url}/login`} component={Login} />
+        <Route exact path={`${match.url}/register`} component={SignUp} />
+        <Redirect to={`${match.url}/`} />
+      </Switch>
+    </ShadowWrapper>
   </div>)
 }
 
@@ -25,7 +28,10 @@ const StyledComponent = styled(Authorize)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
+  margin-top: 10%;
+  @media screen and (orientation:landscape) {
+    margin-top: 5%;
+  }
 `
 
 export default StyledComponent

@@ -26,7 +26,12 @@ export const Welcome = ({className}) => {
         <FancyOr><span>OR</span></FancyOr>
         <Button grow>Create account with Email</Button>
         <div>
-          <span>Aready a member?&nbsp;</span><Button text><NavLink to='/'><span>Log In</span></NavLink></Button>
+          <span>Aready a member?&nbsp;</span>
+          <Button text>
+            <NavLink to='/authorize/login'>
+              <span>Log In</span>
+            </NavLink>
+          </Button>
         </div>
       </DetailedAutorizationBox>
     </div>
@@ -37,18 +42,7 @@ const StyledComponent = styled(Welcome)`
   display: grid;
   width: -webkit-fill-available;
   max-width: 300px;
-  margin-top: 10%;
   grid-template-rows: 25% auto;
-  
-  @media screen and (orientation:landscape) {
-    margin-top: 5%;
-  }
-
-  @media (min-width: 400px) and (min-height: 600px) {
-    border: 1px solid #e8e8e8;
-    padding: 30px;
-    box-shadow: 0px 0px 10px 1px gainsboro;
-  }
 `
 const WelcomeBox = styled.div`
   display: flex;
