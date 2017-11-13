@@ -21,7 +21,7 @@ const StyledComponent = styled.button`
   &:active {
     box-shadow: 2px 2px 7px 0px #9e9d9d;
   }
-  &:hover {
+  &:hover:not(:active) {
     transform: scale(1.03);
   }
   ${ifProp('grow', css`
