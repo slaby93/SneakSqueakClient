@@ -6,35 +6,39 @@ import Button from './../../../../components/general/Button'
 import GoogleGIcon from './../../../../resources/icons/Google__G__Logo.svg'
 import FacebookIcon from './../../../../resources/icons/facebook-F-logo.svg'
 import {NavLink} from 'react-router-dom'
+import ShadowWrapper from './../../../../components/layout/ShadowWrapper'
 
 export const Welcome = ({className}) => {
   return (
-    <div className={className}>
-      <WelcomeBox>
-        <span>SneakSqueak</span>
-        <SVGIcon src={logo} />
-      </WelcomeBox>
-      <DetailedAutorizationBox>
-        <Button color='black' grow>
-          <span>Sign in with &nbsp;</span>
-          <SVGIcon size={20} src={GoogleGIcon} />
-        </Button>
-        <Button color='white' noBorder bgColor='#6b9aff' grow>
-          <span>Sign in with &nbsp;</span>
-          <SVGIcon height={24} width={20} color='white' src={FacebookIcon} />
-        </Button>
-        <FancyOr><span>OR</span></FancyOr>
-        <Button grow>Create account with Email</Button>
-        <div>
-          <span>Aready a member?&nbsp;</span>
-          <Button text>
-            <NavLink to='/authorize/login'>
-              <span>Log In</span>
-            </NavLink>
+    <ShadowWrapper>
+      <div className={className}>
+        <WelcomeBox>
+          <span>SneakSqueak</span>
+          <SVGIcon src={logo} />
+        </WelcomeBox>
+        <DetailedAutorizationBox>
+          <Button color='black' grow>
+            <span>Sign in with &nbsp;</span>
+            <SVGIcon size={20} src={GoogleGIcon} />
           </Button>
-        </div>
-      </DetailedAutorizationBox>
-    </div>
+          <Button color='white' noBorder bgColor='#6b9aff' grow>
+            <span>Sign in with &nbsp;</span>
+            <SVGIcon height={24} width={20} color='white' src={FacebookIcon} />
+          </Button>
+          <FancyOr><span>OR</span></FancyOr>
+          <Button grow>Create account with Email</Button>
+          <div>
+            <span>Aready a member?&nbsp;</span>
+            <Button text>
+              <NavLink to='/authorize/login'>
+                <span>Log In</span>
+              </NavLink>
+            </Button>
+          </div>
+        </DetailedAutorizationBox>
+      </div>
+    </ShadowWrapper>
+
   )
 }
 

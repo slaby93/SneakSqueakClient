@@ -9,6 +9,9 @@ injectGlobal`
     min-height: 100%;
     display: flex;
     flex-grow: 1;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
   }
 
   html, button {
@@ -22,31 +25,26 @@ injectGlobal`
     text-decoration: none;
     font-weight: 500;
   }
-
-  .fade-enter {
+  .fade-authorize-enter {
+    transition: all .5s ease-in;
     opacity: 0;
     z-index: 1;
-  }
-
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 250ms ease-in;
-  }
-
-  .blinker-enter {
-    background-color: red;
-    transition: background 1000ms ease-in;
+    position: absolute;
+    transform: translateX(-50%) translateY(100vh);
+    left: 50%;
     &-active {
-      background-color: green;
-    
+      transform:  translateX(-50%) translateY(0px);
+      opacity: 1;
     }
   }
 
-  .blinker-exit {
-    background-color: blue;
-    transition: background 1000ms ease-in;
+  .fade-authorize-exit {
+    transition: all .5s ease-in;
+    transform: translateY(100vh);
+    opacity: 1;
     &-active {
-      background-color: black;
+      opacity: 0;
+      transform: translateY(100vh);
     }
   }
 `
