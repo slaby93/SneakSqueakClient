@@ -2,21 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './../../../../components/general/Button'
 import {NavLink} from 'react-router-dom'
-import ShadowWrapper from './../../../../components/layout/ShadowWrapper'
 
-export const Login = () => {
+export const Login = ({className}) => {
   return (
-    <ShadowWrapper>
-      <Button text>
-        <NavLink to='/authorize'>
-          <span>Go Back</span>
-        </NavLink>
-      </Button>
-    </ShadowWrapper>
+    <Button text className={className}>
+      <NavLink to='/authorize'>
+        <span>Go Back</span>
+      </NavLink>
+    </Button>
   )
 }
 
 const StyledComponent = styled(Login)`
+  width:300px;
+  height: 800px; 
 `
 
 export default StyledComponent

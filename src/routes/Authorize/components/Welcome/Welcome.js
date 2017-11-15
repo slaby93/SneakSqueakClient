@@ -6,11 +6,9 @@ import Button from './../../../../components/general/Button'
 import GoogleGIcon from './../../../../resources/icons/Google__G__Logo.svg'
 import FacebookIcon from './../../../../resources/icons/facebook-F-logo.svg'
 import {NavLink} from 'react-router-dom'
-import ShadowWrapper from './../../../../components/layout/ShadowWrapper'
 
 export const Welcome = ({className}) => {
   return (
-    <ShadowWrapper>
       <div className={className}>
         <WelcomeBox>
           <span>SneakSqueak</span>
@@ -37,8 +35,6 @@ export const Welcome = ({className}) => {
           </div>
         </DetailedAutorizationBox>
       </div>
-    </ShadowWrapper>
-
   )
 }
 

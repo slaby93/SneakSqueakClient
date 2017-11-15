@@ -26,25 +26,15 @@ injectGlobal`
     font-weight: 500;
   }
   .fade-authorize-enter {
-    transition: all .5s ease-in;
+    transition: all 1.5s ease-in;
     opacity: 0;
-    z-index: 1;
-    position: absolute;
-    transform: translateX(-50%) translateY(100vh);
-    left: 50%;
     &-active {
-      transform:  translateX(-50%) translateY(0px);
       opacity: 1;
     }
   }
 
   .fade-authorize-exit {
-    transition: all .5s ease-in;
-    transform: translateY(100vh);
-    opacity: 1;
-    &-active {
-      opacity: 0;
-      transform: translateY(100vh);
-    }
+    transition: all 1.5s ease-in;
+    display: none !important;
   }
 `

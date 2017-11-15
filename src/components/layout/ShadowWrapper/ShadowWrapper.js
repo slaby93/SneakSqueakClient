@@ -1,6 +1,49 @@
+import React from 'react'
 import styled from 'styled-components'
 
-const ShadowWrapper = styled.div`
+export class ShadowWrapper extends React.Component {
+  componentDidMount () {
+    this.fixSize()
+  }
+
+  componentDidUpdate () {
+    this.fixSize()
+  }
+
+  fixSize () {
+    setTimeout(() => {
+      const width = this.innerDiv.offsetWidth
+      const height = this.innerDiv.offsetHeight
+      this.outerDiv.style.width = `${width}px`
+      this.outerDiv.style.height = `${height}px`
+    }, 50)
+  }
+
+  render () {
+    const {children, className} = this.props
+    return (
+      <div ref={outerDiv => this.outerDiv = outerDiv} className={className}>
+        <div ref={innerDiv => this.innerDiv = innerDiv}>
+          {children}
+        </div>
+      </div>
+    )
+  }
+}
+
+const Styled = styled(ShadowWrapper)`
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  transition: all 1s ease-in;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+   & >  div {
+    width: fit-content;
+  }
   @media (min-width: 370px) and (min-height: 600px) {
     border: 1px solid #e8e8e8;
     padding: 30px;
@@ -9,4 +52,4 @@ const ShadowWrapper = styled.div`
 `
 ShadowWrapper.displayName = 'ShadowWrapper'
 
-export default ShadowWrapper
+export default Styled
