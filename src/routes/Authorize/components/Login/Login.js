@@ -15,7 +15,7 @@ export const Login = ({className}) => {
 
 const StyledComponent = styled(Login)`
   width:300px;
-  height: 800px; 
+  height: 400px; 
 `
 
 export default StyledComponent

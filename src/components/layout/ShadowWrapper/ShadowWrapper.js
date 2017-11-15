@@ -35,7 +35,7 @@ const Styled = styled(ShadowWrapper)`
   width: auto;
   height: auto;
   overflow: hidden;
-  transition: all 1s ease-in;
+  transition: all .5s ease-out;
   position: relative;
   display: flex;
   align-items: flex-start;

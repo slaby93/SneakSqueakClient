@@ -17,7 +17,7 @@ export const Authorize = ({className, match, location}) => {
       <TransitionGroup>
         <CSSTransition
           classNames='fade-authorize'
-          timeout={1500}
+          timeout={1000}
           key={location.key}>
           <Switch location={location}>
             <Route exact path={`${match.url}/`} component={Welcome} />

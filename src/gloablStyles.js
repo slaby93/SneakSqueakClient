@@ -26,7 +26,7 @@ injectGlobal`
     font-weight: 500;
   }
   .fade-authorize-enter {
-    transition: all 1.5s ease-in;
+    transition: all 1s ease-in;
     opacity: 0;
     &-active {
       opacity: 1;
@@ -34,7 +34,7 @@ injectGlobal`
   }
 
   .fade-authorize-exit {
-    transition: all 1.5s ease-in;
+    transition: all 1s ease-in;
     display: none !important;
   }
 `
