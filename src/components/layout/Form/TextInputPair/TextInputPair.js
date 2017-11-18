@@ -1,11 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import { Text } from 'react-form'
+import { ifProp } from 'styled-tools'
 
-export const TextInputPair = ({className, label}) => {
+export const TextInputPair = ({className, error, label, ...props}) => {
   return (
     <div className={className}>
-      <Text placeholder={label} field={label} id={label} />
+      <Text {...props} placeholder={label} field={label} id={label} />
     </div>
   )
 }
@@ -19,12 +20,6 @@ const StyledComponent = styled(TextInputPair)`
     margin-bottom: 2px;
   }
 
-  label {
-    margin-right: 10px;
-    margin-bottom: 5px;
-    font-weight: 400;
-  }
-
   input {
     height: 50px;
     border: 1px solid #dedede;
@@ -33,6 +28,14 @@ const StyledComponent = styled(TextInputPair)`
     &::placeholder {
       color: #a9a9a9;
     }
+    transition: all .5s ease-out;
+    ${ifProp('error', css`
+      border-color: #ff5858;
+      background-color: #ffefef;
+      &::placeholder {
+        color: #ff5858;
+      }
+    `)}
   }
 `
 

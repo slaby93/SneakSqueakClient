@@ -4,23 +4,43 @@ import { Form } from 'react-form'
 import Button, {LinkButton} from './../../../../components/general/Button'
 import TextInputPair from './../../../../components/layout/Form/TextInputPair'
 import Header from './../../../../components/layout/Form/Header'
+import canSubmit from './../../../../utils/form/canSubmit'
 
 export class Login extends React.PureComponent {
+  errorValidator = (values) => {
+    const { Login ,Password } = values
+    return {
+      Login: !Login && 'Required',
+      Password: !Password && 'Required'
+    }
+  }
+
   render () {
     const {className} = this.props
     return (
       <div className={className}>
         <Header>Log In</Header>
-        <Form>
+        <Form
+          validateError={this.errorValidator}
+        >
           {
           formApi => {
             this.formApi = formApi
+            const loginError = formApi.touched.Login && formApi.errors.Login
+            const passwordError = formApi.touched.Password && formApi.errors.Password
+
+            console.log('this.formApi',this.formApi);
             return (
               <form onSubmit={formApi.submitForm}>
-                <TextInputPair label='Login' />
-                <TextInputPair label='Password' />
+                <TextInputPair 
+                  error={loginError}
+                  label='Login'
+                 />
+                <TextInputPair
+                  error={passwordError}
+                  label='Password' />
                 <ButtonsWrapper>
-                  <Button bgColor='#d2e686' grow>Login</Button>
+                  <Button disabled={!canSubmit(formApi.errors)} type="submit" bgColor='#d2e686' grow>Login</Button>
                   <LinkButton grow to='/authorize'>
                     <span>Back</span>
                   </LinkButton>

@@ -2,6 +2,7 @@ import styled, {css} from 'styled-components'
 import { prop, ifProp } from 'styled-tools'
 
 const StyledComponent = styled.button`
+  transition: filter .3s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
