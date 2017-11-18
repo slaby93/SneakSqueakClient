@@ -27,6 +27,10 @@ const StyledComponent = styled.button`
   ${ifProp('grow', css`
       width: 100%;
   `)}
+  ${ifProp('disabled', css`
+     cursor: not-allowed;
+     filter: opacity(0.4);
+  `)}
   ${ifProp('text', css`
       display: inline;
       border: none;

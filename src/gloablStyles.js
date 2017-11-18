@@ -34,7 +34,7 @@ injectGlobal`
   }
 
   .fade-authorize-exit {
-    transition: all 1s ease-in;
+    /* transition: all 1s ease-in; */
     display: none !important;
   }
 `

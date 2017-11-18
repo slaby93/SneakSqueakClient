@@ -36,9 +36,12 @@ const StyledComponent = styled(Authorize)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 5%;
   max-height: 100vh;
   overflow: hidden;
+  @media(min-height: 600px){
+    margin-top: 10%;
+  }
   @media screen and (orientation:landscape) {
     margin-top: 5%;
   }

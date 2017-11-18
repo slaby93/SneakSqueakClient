@@ -2,39 +2,42 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from './../../../../resources/icons/shoes.svg'
 import SVGIcon from './../../../../components/general/SVGIcon'
-import Button from './../../../../components/general/Button'
+import Button, {LinkButton} from './../../../../components/general/Button'
 import GoogleGIcon from './../../../../resources/icons/Google__G__Logo.svg'
 import FacebookIcon from './../../../../resources/icons/facebook-F-logo.svg'
 import {NavLink} from 'react-router-dom'
+import Header from './.../../../../../../components/layout/Form/Header'
 
 export const Welcome = ({className}) => {
   return (
-      <div className={className}>
-        <WelcomeBox>
-          <span>SneakSqueak</span>
-          <SVGIcon src={logo} />
-        </WelcomeBox>
-        <DetailedAutorizationBox>
-          <Button color='black' grow>
-            <span>Sign in with &nbsp;</span>
-            <SVGIcon size={20} src={GoogleGIcon} />
+    <div className={className}>
+      <WelcomeBox>
+        <Header>SneakSqueak</Header>
+        <SVGIcon src={logo} />
+      </WelcomeBox>
+      <DetailedAutorizationBox>
+        <Button color='black' grow>
+          <span>Sign in with &nbsp;</span>
+          <SVGIcon size={20} src={GoogleGIcon} />
+        </Button>
+        <Button color='white' noBorder bgColor='#6b9aff' grow>
+          <span>Sign in with &nbsp;</span>
+          <SVGIcon height={24} width={20} color='white' src={FacebookIcon} />
+        </Button>
+        <FancyOr><span>OR</span></FancyOr>
+        <LinkButton grow to='/authorize/register'>
+          <span>Create account with Email</span>
+        </LinkButton>
+        <div>
+          <span>Aready a member?&nbsp;</span>
+          <Button text>
+            <NavLink to='/authorize/login'>
+              <span>Log In</span>
+            </NavLink>
           </Button>
-          <Button color='white' noBorder bgColor='#6b9aff' grow>
-            <span>Sign in with &nbsp;</span>
-            <SVGIcon height={24} width={20} color='white' src={FacebookIcon} />
-          </Button>
-          <FancyOr><span>OR</span></FancyOr>
-          <Button grow>Create account with Email</Button>
-          <div>
-            <span>Aready a member?&nbsp;</span>
-            <Button text>
-              <NavLink to='/authorize/login'>
-                <span>Log In</span>
-              </NavLink>
-            </Button>
-          </div>
-        </DetailedAutorizationBox>
-      </div>
+        </div>
+      </DetailedAutorizationBox>
+    </div>
   )
 }
 
@@ -49,8 +52,6 @@ const WelcomeBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
-  font-weight: 600;
   svg {
     --size: 60px;
     width: var(--size);
