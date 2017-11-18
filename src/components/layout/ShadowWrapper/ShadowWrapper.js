@@ -14,8 +14,8 @@ export class ShadowWrapper extends React.Component {
     setTimeout(() => {
       const width = this.innerDiv.offsetWidth
       const height = this.innerDiv.offsetHeight
-      this.outerDiv.style.width = `${width}px`
-      this.outerDiv.style.height = `${height}px`
+      this.outerDiv.style.minWidth = `${width}px`
+      this.outerDiv.style.minHeight = `${height}px`
     }, 50)
   }
 

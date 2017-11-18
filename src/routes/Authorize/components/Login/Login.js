@@ -36,6 +36,7 @@ export class Login extends React.PureComponent {
                   label='Login'
                  />
                 <TextInputPair
+                  type='password'
                   error={passwordError}
                   label='Password' />
                 <ButtonsWrapper>

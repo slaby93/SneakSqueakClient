@@ -139,6 +139,7 @@ const prodConfig = {
         }
       ]
     ),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.UglifyJsPlugin()
   ]
 }
