@@ -32,6 +32,9 @@ export class Icon extends React.PureComponent {
   }
 }
 const StyledComponent = styled(Icon)`
+  width: fit-content;
+  height: fit-content;
+  
   svg {
     height: ${prop('height', '20')}px;
     width: ${prop('width', '20')}px;

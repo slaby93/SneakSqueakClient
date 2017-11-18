@@ -22,7 +22,7 @@ export class SignUp extends React.PureComponent {
                   <TextInputPair label='Password' />
                   <TextInputPair label='Confirm Password' />
                   <ButtonsWrapper>
-                    <Button disabled bgColor='#c4fba8' grow>Sign Up</Button>
+                    <Button disabled bgColor='#d2e686' grow>Sign Up</Button>
                     <LinkButton grow to='/authorize'>
                       <span>Back</span>
                     </LinkButton>
