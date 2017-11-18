@@ -4,25 +4,45 @@ import { Form, Text, Radio, RadioGroup, Select, Checkbox } from 'react-form'
 import TextInputPair from './../../../../components/layout/Form/TextInputPair'
 import Header from './.../../../../../../components/layout/Form/Header'
 import Button, {LinkButton} from './../.../../../../../components/general/Button'
+import canSubmit from './../../../../utils/form/canSubmit'
 
 export class SignUp extends React.PureComponent {
+
+  errorValidator = (values) => {
+    const { nick ,email,password, confirm } = values
+    return {
+      nick: !nick && 'Required',
+      email: !email && 'Required',
+      password: !password && 'Required',
+      confirm: !confirm && 'Required'
+    }
+  }
+
+
   render () {
     const { className } = this.props
     return (
       <div className={className}>
         <Header>Sign Up</Header>
-        <Form>
+        <Form
+          validateError={this.errorValidator}
+        >
           {
             formApi => {
               this.formApi = formApi
+              const nickError = formApi.touched.nick && formApi.errors.nick
+              const emailError = formApi.touched.email && formApi.errors.email
+              const passwordError = formApi.touched.password && formApi.errors.password
+              const confirmError = formApi.touched.confirm && formApi.errors.confirm
+
               return (
                 <form onSubmit={formApi.submitForm}>
-                  <TextInputPair label='Nick' />
-                  <TextInputPair label='Email' />
-                  <TextInputPair label='Password' />
-                  <TextInputPair label='Confirm Password' />
+                  <TextInputPair  error={nickError} id='nick' label='Nick' />
+                  <TextInputPair  error={emailError} id='email' label='Email' />
+                  <TextInputPair  error={passwordError} id='password' label='Password' />
+                  <TextInputPair  error={confirmError} id='confirm' label='Confirm Password' />
                   <ButtonsWrapper>
-                    <Button disabled bgColor='#d2e686' grow>Sign Up</Button>
+                    <Button disabled={!canSubmit(formApi.errors)} bgColor='#d2e686' grow>Sign Up</Button>
                     <LinkButton grow to='/authorize'>
                       <span>Back</span>
                     </LinkButton>

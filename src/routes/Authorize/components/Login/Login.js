@@ -29,7 +29,6 @@ export class Login extends React.PureComponent {
             const loginError = formApi.touched.Login && formApi.errors.Login
             const passwordError = formApi.touched.Password && formApi.errors.Password
 
-            console.log('this.formApi',this.formApi);
             return (
               <form onSubmit={formApi.submitForm}>
                 <TextInputPair 

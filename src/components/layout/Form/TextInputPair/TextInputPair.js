@@ -3,10 +3,10 @@ import styled, {css} from 'styled-components'
 import { Text } from 'react-form'
 import { ifProp } from 'styled-tools'
 
-export const TextInputPair = ({className, error, label, ...props}) => {
+export const TextInputPair = ({className, error, id, label, ...props}) => {
   return (
     <div className={className}>
-      <Text {...props} placeholder={label} field={label} id={label} />
+      <Text {...props} placeholder={label} field={id || label} id={id || label} />
     </div>
   )
 }
