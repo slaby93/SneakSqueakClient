@@ -18,33 +18,61 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        undefined,
-        <button
-          className={undefined}
-          onClick={undefined}
-        >
-          FETCH USERS
-        </button>,
-        undefined,
+        <Header__StyledComponent>
+          Sneak Squeak
+        </Header__StyledComponent>,
+        <Button__StyledComponent>
+          <Link
+            replace={false}
+            to="/authorize"
+          >
+            JOIN US NOW
+          </Link>
+        </Button__StyledComponent>,
       ],
+      "className": undefined,
     },
     "ref": null,
     "rendered": Array [
-      undefined,
       Object {
         "instance": null,
         "key": null,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
-          "children": "FETCH USERS",
-          "className": undefined,
-          "onClick": undefined,
+          "children": "Sneak Squeak",
         },
         "ref": null,
-        "rendered": "FETCH USERS",
-        "type": "button",
+        "rendered": "Sneak Squeak",
+        "type": [Function],
       },
-      undefined,
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Link
+            replace={false}
+            to="/authorize"
+          >
+            JOIN US NOW
+          </Link>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "class",
+          "props": Object {
+            "children": "JOIN US NOW",
+            "replace": false,
+            "to": "/authorize",
+          },
+          "ref": null,
+          "rendered": "JOIN US NOW",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -55,33 +83,61 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          undefined,
-          <button
-            className={undefined}
-            onClick={undefined}
-          >
-            FETCH USERS
-          </button>,
-          undefined,
+          <Header__StyledComponent>
+            Sneak Squeak
+          </Header__StyledComponent>,
+          <Button__StyledComponent>
+            <Link
+              replace={false}
+              to="/authorize"
+            >
+              JOIN US NOW
+            </Link>
+          </Button__StyledComponent>,
         ],
+        "className": undefined,
       },
       "ref": null,
       "rendered": Array [
-        undefined,
         Object {
           "instance": null,
           "key": null,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
-            "children": "FETCH USERS",
-            "className": undefined,
-            "onClick": undefined,
+            "children": "Sneak Squeak",
           },
           "ref": null,
-          "rendered": "FETCH USERS",
-          "type": "button",
+          "rendered": "Sneak Squeak",
+          "type": [Function],
         },
-        undefined,
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Link
+              replace={false}
+              to="/authorize"
+            >
+              JOIN US NOW
+            </Link>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "class",
+            "props": Object {
+              "children": "JOIN US NOW",
+              "replace": false,
+              "to": "/authorize",
+            },
+            "ref": null,
+            "rendered": "JOIN US NOW",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
       ],
       "type": "div",
     },

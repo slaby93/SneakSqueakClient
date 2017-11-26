@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import FullScreenLoader from './../../components/general/FullScreenLoader'
 
 export default class AsyncComponent extends PureComponent {
   constructor (props) {
@@ -21,7 +22,7 @@ export default class AsyncComponent extends PureComponent {
     const { Component } = this.state
 
     return (
-        Component ? <Component {...this.props} /> : <span>Loading</span>
+        Component ? <Component {...this.props} /> : <FullScreenLoader />
     )
   }
 };

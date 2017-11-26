@@ -9,11 +9,11 @@ import './gloablStyles'
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-        <Router />
+      <Router />
     </ConnectedRouter>
   </Provider>
 , document.getElementById('app'))
-
+removeInitialLoader()
 const NODE_ENV = process.env.NODE_ENV
 
 if (NODE_ENV === 'production' && 'serviceWorker' in navigator) {
@@ -25,4 +25,8 @@ if (NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err)
     }
   })
+}
+
+function removeInitialLoader () {
+  document.getElementById('loader').remove()
 }

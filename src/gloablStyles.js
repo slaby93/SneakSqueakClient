@@ -5,6 +5,7 @@ injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
 
   html, body, #app {
+    scroll-behavior: smooth;
     margin: 0;
     min-height: 100%;
     display: flex;

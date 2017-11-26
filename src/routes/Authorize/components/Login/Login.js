@@ -1,46 +1,54 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Form } from 'react-form'
-import Button, {LinkButton} from './../../../../components/general/Button'
 import TextInputPair from './../../../../components/layout/Form/TextInputPair'
-import Header from './../../../../components/layout/Form/Header'
 import canSubmit from './../../../../utils/form/canSubmit'
+import Button, {LinkButton} from './../../../../components/layout/generic/Button'
+import Header from './../../../../components/layout/generic/Header'
+import Loader from './../../../../components/general/Loader'
 
 export class Login extends React.PureComponent {
   errorValidator = (values) => {
-    const { Login ,Password } = values
+    const { login ,password } = values
     return {
-      Login: !Login && 'Required',
-      Password: !Password && 'Required'
+      login: !login && 'Required',
+      password: !password && 'Required'
     }
   }
 
   render () {
-    const {className} = this.props
+    const {className, onSubmit, isLogging} = this.props
+
     return (
       <div className={className}>
+        {isLogging  && <Loader container/>}
         <Header>Log In</Header>
         <Form
+          onSubmit={onSubmit}
           validateError={this.errorValidator}
         >
           {
           formApi => {
             this.formApi = formApi
-            const loginError = formApi.touched.Login && formApi.errors.Login
-            const passwordError = formApi.touched.Password && formApi.errors.Password
+            const loginError = formApi.touched.login && formApi.errors.login
+            const passwordError = formApi.touched.password && formApi.errors.password
 
             return (
               <form onSubmit={formApi.submitForm}>
                 <TextInputPair 
                   error={loginError}
                   label='Login'
+                  id='login'
                  />
                 <TextInputPair
                   type='password'
                   error={passwordError}
+                  id='password'
                   label='Password' />
                 <ButtonsWrapper>
-                  <Button disabled={!canSubmit(formApi.errors)} type="submit" bgColor='#d2e686' grow>Login</Button>
+                  <Button disabled={!canSubmit(formApi.errors)} type="submit" bgColor='#d2e686' grow>
+                    <span>Login</span>
+                    </Button>
                   <LinkButton grow to='/authorize'>
                     <span>Back</span>
                   </LinkButton>
@@ -64,6 +72,7 @@ const StyledComponent = styled(Login)`
     margin-bottom: 60px;
   }
 `
+
 const ButtonsWrapper = styled.div`
 display: flex;
 flex-direction: column;
@@ -72,4 +81,5 @@ flex-direction: column;
   margin-bottom: 10px;
 }
 `
+
 export default StyledComponent

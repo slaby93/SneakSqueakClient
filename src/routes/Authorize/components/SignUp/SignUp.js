@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Form, Text, Radio, RadioGroup, Select, Checkbox } from 'react-form'
 import TextInputPair from './../../../../components/layout/Form/TextInputPair'
-import Header from './.../../../../../../components/layout/Form/Header'
-import Button, { LinkButton } from './../.../../../../../components/general/Button'
 import canSubmit from './../../../../utils/form/canSubmit'
+import Header from './.../../../../../../components/layout/generic/Header'
+import Button, { LinkButton } from './../.../../../../../components/layout/generic/Button'
+import Loader from './../../../../components/general/Loader'
+import * as fieldsValidator from './../../../../utils/form/fieldsValidator'
 
 export class SignUp extends React.PureComponent {
 
@@ -12,13 +14,16 @@ export class SignUp extends React.PureComponent {
     const { nick, email, password, confirm } = values
     const isPasswordRepeatedCorrectly = confirm === password 
     let confirmError = !isPasswordRepeatedCorrectly && 'Password do not match'
-
+    let emailError = !fieldsValidator.email(email) && 'Invalid Email'
     if(!confirm) {
       confirmError = 'Required'
     }
+    if(!email) {
+      emailError = 'Required'
+    }
     return {
       nick: !nick && 'Required',
-      email: !email && 'Required',
+      email: emailError,
       password: !password && 'Required',
       confirm: confirmError
     }
@@ -26,11 +31,14 @@ export class SignUp extends React.PureComponent {
 
 
   render() {
-    const { className } = this.props
+    const { className, isSigningUp, onSubmit } = this.props
+
     return (
       <div className={className}>
+        {isSigningUp && <Loader container/>}
         <Header>Sign Up</Header>
         <Form
+          onSubmit={onSubmit}
           validateError={this.errorValidator}
         >
           {
@@ -90,6 +98,10 @@ const StyledComponent = styled(SignUp) `
   form {
     max-height: calc(100vh - 120px);
     overflow: auto;
+
+    @media(min-height: 600px){
+      overflow: unset;
+    }
   }
 `
 

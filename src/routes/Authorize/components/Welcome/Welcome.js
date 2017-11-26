@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import {NavLink} from 'react-router-dom'
 import logo from './../../../../resources/icons/shoes.svg'
 import SVGIcon from './../../../../components/general/SVGIcon'
-import Button, {LinkButton} from './../../../../components/general/Button'
+import Button, {LinkButton} from './../../../../components/layout/generic/Button'
 import GoogleGIcon from './../../../../resources/icons/Google__G__Logo.svg'
 import FacebookIcon from './../../../../resources/icons/facebook-F-logo.svg'
-import {NavLink} from 'react-router-dom'
-import Header from './.../../../../../../components/layout/Form/Header'
+import Header from './.../../../../../../components/layout/generic/Header'
 
 export const Welcome = ({className}) => {
   return (
