@@ -43,6 +43,12 @@ const commonModule = {
   ]
 }
 
+const resolve = {
+  alias: {
+    styledComponentsSerilizeHelper: path.resolve(__dirname, 'src/utils/testing/styledComponentsSerilizeHelper.js')
+  }
+}
+
 const defaultConfig = {
   context: path.join(__dirname, '/'),
   devtool: 'inline-source-map',
@@ -58,6 +64,7 @@ const defaultConfig = {
     publicPath: '/'
   },
   module: commonModule,
+  resolve,
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html'
@@ -106,6 +113,7 @@ const prodConfig = {
     publicPath: '/'
   },
   module: commonModule,
+  resolve,
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html'
