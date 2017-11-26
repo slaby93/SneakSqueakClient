@@ -1,33 +1,34 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export class ShadowWrapper extends React.Component {
-  componentDidMount () {
-    this.fixSize()
+  componentDidMount() {
+    this.fixSize();
   }
 
-  componentDidUpdate () {
-    this.fixSize()
+  componentDidUpdate() {
+    this.fixSize();
   }
 
-  fixSize () {
+  fixSize() {
     setTimeout(() => {
-      const width = this.innerDiv.offsetWidth
-      const height = this.innerDiv.offsetHeight
-      this.outerDiv.style.minWidth = `${width}px`
-      this.outerDiv.style.minHeight = `${height}px`
-    }, 50)
+      const width = this.innerDiv.offsetWidth;
+      const height = this.innerDiv.offsetHeight;
+      this.outerDiv.style.minWidth = `${width}px`;
+      this.outerDiv.style.minHeight = `${height}px`;
+    }, 50);
   }
 
-  render () {
-    const {children, className} = this.props
+  render() {
+    const { children, className } = this.props;
+
     return (
       <div ref={outerDiv => this.outerDiv = outerDiv} className={className}>
         <div ref={innerDiv => this.innerDiv = innerDiv}>
           {children}
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -49,7 +50,7 @@ const Styled = styled(ShadowWrapper)`
     padding: 30px;
     box-shadow: 0px 0px 10px 1px gainsboro;
   }
-`
-ShadowWrapper.displayName = 'ShadowWrapper'
+`;
+ShadowWrapper.displayName = 'ShadowWrapper';
 
-export default Styled
+export default Styled;

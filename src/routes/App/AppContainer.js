@@ -1,24 +1,24 @@
-import React from 'react'
-import App from './App'
-import {connect} from 'react-redux'
+import React from 'react';
+import App from './App';
+import { connect } from 'react-redux';
 
 const AppContainer = (props) => {
-  return <App {...props} />
-}
+  return <App {...props} />;
+};
 
-function mapStateToProps (state) {
-  const isRequesting = state.getIn(['users', 'isRequesting'])
-  const users = state.getIn(['users', 'users'])
+function mapStateToProps(state) {
+  const isRequesting = state.getIn(['users', 'isRequesting']);
+  const users = state.getIn(['users', 'users']);
 
   return {
     isRequesting,
-    users
-  }
+    users,
+  };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-  }
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

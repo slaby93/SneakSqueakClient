@@ -1,18 +1,19 @@
-import React from 'react'
-import styled, {css} from 'styled-components'
-import { ifProp } from 'styled-tools'
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { ifProp } from 'styled-tools';
 
-export const Loader = ({className}) => {
-  return (<div className={className}>
-    <div className='spinner-box'>
-      <div className='spinner-axis'>
-        <div className='spinner'>
-          <div className='spinner-inner' />
+export const Loader = ({ className }) => {
+  return (
+    <div className={className}>
+      <div className="spinner-box">
+        <div className="spinner-axis">
+          <div className="spinner">
+            <div className="spinner-inner" />
+          </div>
         </div>
       </div>
-    </div>
-  </div>)
-}
+    </div>);
+};
 
 const StyledComponent = styled(Loader)`
 .spinner-box{
@@ -79,6 +80,6 @@ ${ifProp('container', css`
 
 
 
-`
+`;
 
-export default StyledComponent
+export default StyledComponent;

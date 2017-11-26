@@ -1,24 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import {
   Route,
   Switch,
-  Redirect
-} from 'react-router-dom'
-import Welcome from './components/Welcome'
-import Login from './components/Login'
-import SignUp from './components/SignUp'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import ShadowWrapper from './../../components/layout/ShadowWrapper'
+  Redirect,
+} from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import Welcome from './components/Welcome';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import ShadowWrapper from './../../components/layout/ShadowWrapper';
 
-export const Authorize = ({className, match, location}) => {
+export const Authorize = ({ className, match, location }) => {
   return (<div className={className}>
     <ShadowWrapper>
       <TransitionGroup>
         <CSSTransition
-          classNames='fade-authorize'
+          classNames="fade-authorize"
           timeout={1000}
-          key={location.key}>
+          key={location.key}
+        >
           <Switch location={location}>
             <Route exact path={`${match.url}/`} component={Welcome} />
             <Route exact path={`${match.url}/login`} component={Login} />
@@ -28,8 +29,8 @@ export const Authorize = ({className, match, location}) => {
         </CSSTransition>
       </TransitionGroup>
     </ShadowWrapper>
-  </div>)
-}
+          </div>);
+};
 
 const StyledComponent = styled(Authorize)`
   display: flex;
@@ -45,6 +46,6 @@ const StyledComponent = styled(Authorize)`
   @media screen and (orientation:landscape) {
     margin-top: 5%;
   }
-`
+`;
 
-export default StyledComponent
+export default StyledComponent;

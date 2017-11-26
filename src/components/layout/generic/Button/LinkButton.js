@@ -1,17 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
-import {NavLink} from 'react-router-dom'
-import Button from './Button'
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import Button from './Button';
 
-export const LinkButton = ({className, to, children, ...props}) => {
+export const LinkButton = ({
+  className, to, children, ...props
+}) => {
   return (
     <NavLink to={to}>
       <Button className={className} {...props}>
         {children}
       </Button>
     </NavLink>
-  )
-}
+  );
+};
 
 const StyledComponent = styled(LinkButton)`
   a {
@@ -22,6 +24,6 @@ const StyledComponent = styled(LinkButton)`
     font-weight: 400;
     width: max-content;
   }
-`
+`;
 
-export default StyledComponent
+export default StyledComponent;

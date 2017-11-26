@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components'
-import { prop, ifProp } from 'styled-tools'
+import styled, { css } from 'styled-components';
+import { prop, ifProp } from 'styled-tools';
 
 const StyledComponent = styled.button`
   display: flex;
@@ -50,6 +50,6 @@ const StyledComponent = styled.button`
   ${ifProp('noBorder', css`
     border: none;
   `)}
-`
+`;
 
-export default StyledComponent
+export default StyledComponent;

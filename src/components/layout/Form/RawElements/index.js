@@ -7,5 +7,5 @@ export {
   RadioGroup,
   Select,
   Checkbox,
-  NestedForm
-} from './Elements.js'
+  NestedForm,
+} from './Elements.js';

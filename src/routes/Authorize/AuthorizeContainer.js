@@ -1,19 +1,19 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import Authorize from './Authorize'
+import React from 'react';
+import { connect } from 'react-redux';
+import Authorize from './Authorize';
 
 export const AuthorizeContainer = (props) => {
-  return (<Authorize {...props} />)
-}
+  return (<Authorize {...props} />);
+};
 
-function mapStateToProps (state) {
+function mapStateToProps() {
   return {
-  }
+  };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps() {
   return {
-  }
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthorizeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(AuthorizeContainer);

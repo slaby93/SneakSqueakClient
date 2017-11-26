@@ -1,10 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export class GlobalWrapper extends React.Component {
-  render () {
-    const {className, children} = this.props
-    return <div className={className} >{children}</div>
+  render() {
+    const { className, children } = this.props;
+
+    return <div className={className} >{children}</div>;
   }
 }
 
@@ -13,6 +14,6 @@ const Styled = styled(GlobalWrapper)`
   flex-grow: 1;
   height: 100%;
   background-color: white;
-`
+`;
 
-export default Styled
+export default Styled;

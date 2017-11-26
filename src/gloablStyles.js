@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components';
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
@@ -38,4 +38,4 @@ injectGlobal`
     /* transition: all 1s ease-in; */
     display: none !important;
   }
-`
+`;

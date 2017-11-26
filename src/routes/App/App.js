@@ -1,24 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-import Button from './../../components/layout/generic/Button'
-import Header from './../../components/layout/generic/Header'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Button from './../../components/layout/generic/Button';
+import Header from './../../components/layout/generic/Header';
 
 export const App = class extends React.PureComponent {
-  render () {
-    const { className } = this.props
+  render() {
+    const { className } = this.props;
+
     return (
       <div className={className}>
         <Header>Sneak Squeak</Header>
         <Button>
-          <Link to='/authorize'>
+          <Link to="/authorize">
           JOIN US NOW
           </Link>
         </Button>
       </div>
-    )
+    );
   }
-}
+};
 
 const StyledComponent = styled(App)`
   display: flex;
@@ -31,6 +32,6 @@ const StyledComponent = styled(App)`
   h1 {
     margin-bottom: 10%;
   }
-`
+`;
 
-export default StyledComponent
+export default StyledComponent;

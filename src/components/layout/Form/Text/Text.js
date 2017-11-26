@@ -1,15 +1,17 @@
-import React from 'react'
-import styled, {css} from 'styled-components'
-import { ifProp, prop } from 'styled-tools'
-import { Text } from './../RawElements'
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { ifProp, prop } from 'styled-tools';
+import { Text } from './../RawElements';
 
-export const TextInput = ({className, error, id, label, ...props}) => {
+export const TextInput = ({
+  className, error, id, label, ...props
+}) => {
   return (
     <div className={className}>
       <Text {...props} placeholder={label} field={id || label} id={id || label} />
     </div>
-  )
-}
+  );
+};
 
 const StyledComponent = styled(TextInput)`
   position: relative;
@@ -53,6 +55,6 @@ const StyledComponent = styled(TextInput)`
         content: '${prop('error')}';
       }
     `)}
-`
+`;
 
-export default StyledComponent
+export default StyledComponent;

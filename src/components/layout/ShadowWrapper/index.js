@@ -1,1 +1,1 @@
-export {default} from './ShadowWrapper'
+export { default } from './ShadowWrapper';

@@ -1,17 +1,18 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export const FullScreenLoader = ({ className }) => {
-  return (<div className={className}>
-    <div className='ball' />
-    <div className='ball' />
-    <div className='ball' />
-    <div className='ball' />
-    <div className='ball' />
-    <div className='ball' />
-    <div className='ball' />
-  </div>)
-}
+  return (
+    <div className={className}>
+      <div className="ball" />
+      <div className="ball" />
+      <div className="ball" />
+      <div className="ball" />
+      <div className="ball" />
+      <div className="ball" />
+      <div className="ball" />
+    </div>);
+};
 
 const StyledComponent = styled(FullScreenLoader)`
       position: fixed;
@@ -24,6 +25,6 @@ const StyledComponent = styled(FullScreenLoader)`
     z-index: 1;
     top: 0px;
     left: 0px;
-`
+`;
 
-export default StyledComponent
+export default StyledComponent;

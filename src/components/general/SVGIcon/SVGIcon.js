@@ -1,34 +1,38 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled, {css} from 'styled-components'
-import { prop, ifProp } from 'styled-tools'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
+import { prop, ifProp } from 'styled-tools';
 
 export class Icon extends React.PureComponent {
-  translateIcon (icon) {
+  translateIcon(icon) {
     if (!icon) {
-      return
+      return;
     }
     let result = icon
-            .substr(1, icon.length - 1) // takes values between ""
-            .replace(/%3C/g, '<')
-            .replace(/%3E/g, '>')
-            .replace(/%23/g, '#')
-            .replace(/"/g, '')
+      .substr(1, icon.length - 1) // takes values between ""
+      .replace(/%3C/g, '<')
+      .replace(/%3E/g, '>')
+      .replace(/%23/g, '#')
+      .replace(/"/g, '');
     result = result
-            .substr(
-                result.search(/<svg/g) // trims plugin text
-            )
-    return result
+      .substr(result.search(/<svg/g));
+
+    return result;
   }
 
-  render () {
-    const {src, className, size, ...props} = this.props
-    const translatedIcon = this.translateIcon(src)
+  render() {
+    const {
+      src, className, size, ...props
+    } = this.props;
+    const translatedIcon = this.translateIcon(src);
 
     return (
-      <div className={className}
-        dangerouslySetInnerHTML={{__html: translatedIcon}} {...props} />
-    )
+      <div
+        className={className}
+        dangerouslySetInnerHTML={{ __html: translatedIcon }}
+        {...props}
+      />
+    );
   }
 }
 const StyledComponent = styled(Icon)`
@@ -48,10 +52,11 @@ const StyledComponent = styled(Icon)`
       fill: ${prop('color')};
   `)}
   }
-`
+`;
 Icon.propTypes = {
   src: PropTypes.string.isRequired,
-  className: PropTypes.string
-}
+  className: PropTypes.string,
+  size: PropTypes.number,
+};
 
-export default StyledComponent
+export default StyledComponent;
