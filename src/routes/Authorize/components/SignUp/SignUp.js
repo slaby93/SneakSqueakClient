@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Form, Text, Radio, RadioGroup, Select, Checkbox } from 'react-form'
-import TextInputPair from './../../../../components/layout/Form/TextInputPair'
+import { Text, Form } from './../../../../components/layout/Form'
 import canSubmit from './../../../../utils/form/canSubmit'
 import Header from './.../../../../../../components/layout/generic/Header'
 import Button, { LinkButton } from './../.../../../../../components/layout/generic/Button'
@@ -51,20 +50,20 @@ export class SignUp extends React.PureComponent {
 
               return (
                 <form onSubmit={formApi.submitForm}>
-                  <TextInputPair
+                  <Text
                     error={nickError}
                     id='nick'
                     label='Nick' />
-                  <TextInputPair
+                  <Text
                     error={emailError}
                     id='email'
                     label='Email' />
-                  <TextInputPair
+                  <Text
                     type='password'
                     error={passwordError}
                     id='password'
                     label='Password' />
-                  <TextInputPair
+                  <Text
                     type='password'
                     error={confirmError}
                     id='confirm'

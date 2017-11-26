@@ -1,9 +1,9 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
-import { Text } from 'react-form'
 import { ifProp, prop } from 'styled-tools'
+import { Text } from './../RawElements'
 
-export const TextInputPair = ({className, error, id, label, ...props}) => {
+export const TextInput = ({className, error, id, label, ...props}) => {
   return (
     <div className={className}>
       <Text {...props} placeholder={label} field={id || label} id={id || label} />
@@ -11,7 +11,7 @@ export const TextInputPair = ({className, error, id, label, ...props}) => {
   )
 }
 
-const StyledComponent = styled(TextInputPair)`
+const StyledComponent = styled(TextInput)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ const StyledComponent = styled(TextInputPair)`
       color: red;
   }
 
-  input {
+  ${Text} {
     font-size: 17px;
     height: 50px;
     border: 1px solid #dedede;
@@ -42,7 +42,7 @@ const StyledComponent = styled(TextInputPair)`
   }
 
   ${ifProp('error', css`
-      input {
+    ${Text} {
         border-color: #ff5858;
         background-color: #ffefef;
         &::placeholder {
