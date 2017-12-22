@@ -1,20 +1,22 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HappyPack = require('happypack')
-const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-console.log('Using NODE_ENV:', nodeEnv)
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HappyPack = require('happypack');
+
+const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+console.log('Using NODE_ENV:', nodeEnv);
 
 const commonModule = {
   loaders: [
     {
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
-      loader: 'happypack/loader'
+      loader: 'happypack/loader',
     },
     { test: /(\.css|\.scss)$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-    {test: /\.svg/, loader: 'svg-url-loader'},
+    { test: /\.svg/, loader: 'svg-url-loader' },
     {
       test: /\.(gif|png|jpe?g)$/i,
       loader: [
@@ -24,30 +26,30 @@ const commonModule = {
           query: {
             bypassOnDebug: true,
             mozjpeg: {
-              progressive: true
+              progressive: true,
             },
             gifsicle: {
-              interlaced: false
+              interlaced: false,
             },
             optipng: {
-              optimizationLevel: 4
+              optimizationLevel: 4,
             },
             pngquant: {
               quality: '75-90',
-              speed: 3
-            }
-          }
-        }
-      ]
-    }
-  ]
-}
+              speed: 3,
+            },
+          },
+        },
+      ],
+    },
+  ],
+};
 
 const resolve = {
   alias: {
-    styledComponentsSerilizeHelper: path.resolve(__dirname, 'src/utils/testing/styledComponentsSerilizeHelper.js')
-  }
-}
+    styledComponentsSerilizeHelper: path.resolve(__dirname, 'src/utils/testing/styledComponentsSerilizeHelper.js'),
+  },
+};
 
 const defaultConfig = {
   context: path.join(__dirname, '/'),
@@ -55,48 +57,46 @@ const defaultConfig = {
   entry: [
     'babel-polyfill',
     'whatwg-fetch',
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: path.join(__dirname, '/server/public'),
     chunkFilename: '[name].chunk.js',
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: commonModule,
   resolve,
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'public/index.html',
     }),
     new HappyPack({
       loaders: ['babel-loader'],
-      threads: 4
+      threads: 4,
     }),
-    new CopyWebpackPlugin(
-      [
-        {
-          from: 'src/manifest.json',
-          to: './manifest.json'
-        },
-        {
-          from: 'src/resources/icons',
-          to: './icons'
-        }
-      ]
-    ),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/manifest.json',
+        to: './manifest.json',
+      },
+      {
+        from: 'src/resources/icons',
+        to: './icons',
+      },
+    ]),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': nodeEnv
-      }
+        NODE_ENV: nodeEnv,
+      },
     }),
-    new webpack.optimize.ModuleConcatenationPlugin()
+    new webpack.optimize.ModuleConcatenationPlugin(),
   ],
   watchOptions: {
     aggregateTimeout: 300,
-    poll: 1000
-  }
-}
+    poll: 1000,
+  },
+};
 
 const prodConfig = {
   context: path.join(__dirname, '/'),
@@ -104,52 +104,50 @@ const prodConfig = {
   entry: [
     'babel-polyfill',
     'whatwg-fetch',
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: path.join(__dirname, '/server/public'),
     chunkFilename: '[name].chunk.js',
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: commonModule,
   resolve,
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'public/index.html',
     }),
     new HappyPack({
       loaders: ['babel-loader'],
-      threads: 4
+      threads: 4,
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': nodeEnv
-      }
+        NODE_ENV: nodeEnv,
+      },
     }),
-    new CopyWebpackPlugin(
-      [
-        {
-          from: 'src/manifest.json',
-          to: './manifest.json'
-        },
-        {
-          from: 'src/resources/icons',
-          to: './icons'
-        },
-        {
-          from: './node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.0.js',
-          to: './workbox-sw.prod.v2.1.0.js'
-        },
-        {
-          from: './node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.0.js.map',
-          to: './workbox-sw.prod.v2.1.0.js.map'
-        }
-      ]
-    ),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/manifest.json',
+        to: './manifest.json',
+      },
+      {
+        from: 'src/resources/icons',
+        to: './icons',
+      },
+      {
+        from: './node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.0.js',
+        to: './workbox-sw.prod.v2.1.0.js',
+      },
+      {
+        from: './node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.1.0.js.map',
+        to: './workbox-sw.prod.v2.1.0.js.map',
+      },
+    ]),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.UglifyJsPlugin()
-  ]
-}
+    new webpack.optimize.UglifyJsPlugin(),
+  ],
+};
 
-module.exports = nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig
+module.exports = nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig;
