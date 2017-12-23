@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -12,14 +11,12 @@ import GlobalWrapper from './GlobalWrapper';
 
 export default () => {
   return (
-    <Router>
-      <GlobalWrapper>
-        <Switch>
-          <Route exact path="/" component={App} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/authorize" component={Authorize} />
-        </Switch>
-      </GlobalWrapper>
-    </Router>
+    <GlobalWrapper>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/authorize" component={Authorize} />
+      </Switch>
+    </GlobalWrapper>
   );
 };
