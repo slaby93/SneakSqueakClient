@@ -3,10 +3,12 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HappyPack = require('happypack');
 
-const nodeEnv = JSON.stringify(process.env.NODE_ENV || 'production');
+const NODE_ENV = JSON.stringify(process.env.NODE_ENV || 'production');
+const JS_ENV = JSON.stringify(process.env.NODE_ENV || 'production');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-console.log('Using NODE_ENV:', nodeEnv);
+console.log('Using NODE_ENV:', NODE_ENV);
+console.log('Using JS_ENV:', JS_ENV);
 
 const commonModule = {
   loaders: [
@@ -87,7 +89,8 @@ const defaultConfig = {
     ]),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: nodeEnv,
+        NODE_ENV,
+        JS_ENV,
       },
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
@@ -124,7 +127,8 @@ const prodConfig = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: nodeEnv,
+        NODE_ENV,
+        JS_ENV,
       },
     }),
     new CopyWebpackPlugin([
@@ -150,4 +154,4 @@ const prodConfig = {
   ],
 };
 
-module.exports = nodeEnv === JSON.stringify('production') ? prodConfig : defaultConfig;
+module.exports = NODE_ENV === JSON.stringify('production') ? prodConfig : defaultConfig;

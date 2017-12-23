@@ -29,7 +29,7 @@ export const Authorize = ({ className, match, location }) => {
         </CSSTransition>
       </TransitionGroup>
     </ShadowWrapper>
-          </div>);
+  </div>);
 };
 
 const StyledComponent = styled(Authorize)`

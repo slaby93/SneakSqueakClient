@@ -16,6 +16,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onSubmit: (data) => {
+      console.log('FETCH', data);
       dispatch(USER_ACTIONS.USERS_SIGNUP_REQUEST(data));
     },
   };

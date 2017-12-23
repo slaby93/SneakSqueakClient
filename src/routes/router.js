@@ -7,6 +7,7 @@ import {
 
 import App from './App';
 import Authorize from './Authorize';
+import Dashboard from './Dashboard';
 import GlobalWrapper from './GlobalWrapper';
 
 export default () => {
@@ -15,6 +16,7 @@ export default () => {
       <GlobalWrapper>
         <Switch>
           <Route exact path="/" component={App} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/authorize" component={Authorize} />
         </Switch>
       </GlobalWrapper>
