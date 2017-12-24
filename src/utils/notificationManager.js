@@ -9,12 +9,14 @@ export const TYPES = {
   ERROR: 'error',
 };
 
-export default (args) => {
-  new Noty({
-    type: TYPES.INFO,
-    theme: 'semanticui',
-    timeout: 1200,
-    progressBar: true,
-    ...args,
-  }).show();
+export default {
+  show: (options) => {
+    new Noty({
+      type: TYPES.INFO,
+      theme: 'semanticui',
+      timeout: 1200,
+      progressBar: true,
+      ...options,
+    }).show();
+  },
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Dashboard = () => {
-  return (<div>DASHBOARD</div>);
+export const Dashboard = ({ logout }) => {
+  return (<div onClick={logout}>DASHBOARD</div>);
 };
 
 const StyledComponent = styled(Dashboard)`

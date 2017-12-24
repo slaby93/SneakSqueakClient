@@ -12,6 +12,9 @@ export const USERS_SIGNUP_FAILURE = createAction('USER/SIGNUP/FAILURE');
 export const USERS_TOKEN_LOAD = createAction('USER/TOKEN/LOAD');
 export const USERS_TOKEN_SET = createAction('USER/TOKEN/SET');
 
+
+export const USERS_LOGOUT = createAction('USER/LOGOUT');
+
 const defaultState = fromJS({
   isLogging: false,
   isSigningUp: false,

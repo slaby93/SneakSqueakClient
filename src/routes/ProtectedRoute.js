@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import localStorageManager from './../utils/localStorageManager';
 
 export const ProtectedRoute = ({
   isLoggedIn, component: Component, ...rest
@@ -23,10 +24,10 @@ ProtectedRoute.propTypes = {
 };
 
 export function mapStateToProps(state) {
-  console.log('state', state);
+  const token = state.getIn(['user', 'token']) || localStorageManager.get('token');
 
   return {
-    isLoggedIn: false,
+    isLoggedIn: !!token,
   };
 }
 

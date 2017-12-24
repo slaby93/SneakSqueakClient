@@ -10,6 +10,7 @@ import {
   USERS_SIGNUP_FAILURE,
   USERS_TOKEN_LOAD,
   USERS_TOKEN_SET,
+  USERS_LOGOUT,
 } from './../ducks/user';
 import notificationManager from './../utils/notificationManager';
 import localStorageManager from './../utils/localStorageManager';
@@ -27,9 +28,7 @@ export function* login({ payload: { login, password } }) {
       return;
     }
     localStorageManager.set(TOKEN, token);
-    yield put(USERS_LOGIN_SUCCESS({ token }));
-    // TODO: MOVE TO SAGA
-    notificationManager({
+    notificationManager.show({
       text: 'Login success',
       layout: 'topRight',
       type: 'success',
@@ -37,6 +36,7 @@ export function* login({ payload: { login, password } }) {
       progressBar: true,
     });
     yield put(push('/dashboard'));
+    yield put(USERS_LOGIN_SUCCESS({ token }));
   } catch (error) {
     yield put(USERS_LOGIN_FAILURE(error));
   }
@@ -51,15 +51,20 @@ export function* register({
   try {
     const response = yield fetch(`http://0.0.0.0:83/user/register?userName=${nick}&userPassword=${password}`, {
       method: 'GET',
-      mode: 'no-cors',
     });
     const users = yield response.json();
     yield put(USERS_SIGNUP_SUCCESS({ users }));
+    yield put(USERS_LOGIN_REQUEST({ login: nick, password }));
   } catch (error) {
     yield put(USERS_SIGNUP_FAILURE(error));
   }
 }
 
+
+export function* logout() {
+  localStorageManager.remove(TOKEN);
+  yield put(push('/'));
+}
 
 export function* loadToken() {
   const token = localStorageManager.get(TOKEN);
@@ -71,6 +76,7 @@ export function* loadToken() {
 export default function* watcher() {
   yield all([
     takeLatest(USERS_LOGIN_REQUEST, login),
+    takeLatest(USERS_LOGOUT, logout),
     takeLatest(USERS_SIGNUP_REQUEST, register),
     takeLatest(USERS_TOKEN_LOAD, loadToken),
   ]);

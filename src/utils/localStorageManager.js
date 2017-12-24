@@ -12,5 +12,12 @@ export default {
 
     return window.localStorage.getItem(key);
   },
+  remove: (key) => {
+    if (!window.localStorage) {
+      return;
+    }
+
+    return window.localStorage.removeItem(key);
+  },
 
 };
