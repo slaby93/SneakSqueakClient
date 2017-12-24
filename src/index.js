@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import 'noty/src/noty.scss';
-import 'noty/src/themes/semanticui.scss';
 import store, { history } from './store/store';
 import Router from './routes/router';
 import './gloablStyles';

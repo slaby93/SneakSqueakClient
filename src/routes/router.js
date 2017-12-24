@@ -8,14 +8,15 @@ import App from './App';
 import Authorize from './Authorize';
 import Dashboard from './Dashboard';
 import GlobalWrapper from './GlobalWrapper';
+import ProtectedRoute from './ProtectedRoute';
 
 export default () => {
   return (
     <GlobalWrapper>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/dashboard" component={Dashboard} />
         <Route path="/authorize" component={Authorize} />
+        <ProtectedRoute path="/dashboard" component={Dashboard} />
       </Switch>
     </GlobalWrapper>
   );

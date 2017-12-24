@@ -1,8 +1,6 @@
 
 import { takeLatest, put, all } from 'redux-saga/effects';
-import Noty from 'noty';
 import { push } from 'react-router-redux';
-import { history } from './../store/store';
 import {
   USERS_LOGIN_REQUEST,
   USERS_LOGIN_SUCCESS,
@@ -11,7 +9,9 @@ import {
   USERS_SIGNUP_SUCCESS,
   USERS_SIGNUP_FAILURE,
 } from './../ducks/user';
-
+import notificationManager from './../utils/notificationManager';
+import localStorageManager from './../utils/localStorageManager';
+import { TOKEN } from './../consts/localStorageKeys';
 
 export function* login({ payload: { login, password } }) {
   try {
@@ -24,17 +24,17 @@ export function* login({ payload: { login, password } }) {
 
       return;
     }
+    localStorageManager.set(TOKEN, token);
     yield put(USERS_LOGIN_SUCCESS({ token }));
     // TODO: MOVE TO SAGA
-    new Noty({
+    notificationManager({
       text: 'Login success',
       layout: 'topRight',
-      theme: 'semanticui',
       type: 'success',
       timeout: 1200,
       progressBar: true,
-    }).show();
-    history.push('/dashboard');
+    });
+    yield put(push('/dashboard'));
   } catch (error) {
     yield put(USERS_LOGIN_FAILURE(error));
   }

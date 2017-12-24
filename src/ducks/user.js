@@ -13,32 +13,33 @@ const defaultState = fromJS({
   isLogging: false,
   isSigningUp: false,
   profile: null,
+  token: null,
   error: null,
 });
 
 const reducer = handleActions({
-  [USERS_LOGIN_REQUEST]: (state, action) => {
+  [USERS_LOGIN_REQUEST]: (state) => {
     return state.merge({
       isLogging: true,
       profile: null,
       error: null,
     });
   },
-  [USERS_LOGIN_SUCCESS]: (state, { payload: { profile } }) => {
+  [USERS_LOGIN_SUCCESS]: (state, { payload: { token } }) => {
     return state.merge({
       isLogging: false,
-      profile,
+      token,
       error: null,
     });
   },
-  [USERS_LOGIN_FAILURE]: (state, action) => {
+  [USERS_LOGIN_FAILURE]: (state) => {
     return state.merge({
       isLogging: false,
       profile: null,
       error: 'Error during logging',
     });
   },
-  [USERS_SIGNUP_REQUEST]: (state, action) => {
+  [USERS_SIGNUP_REQUEST]: (state) => {
     return state.merge({
       isSigningUp: true,
       profile: null,
@@ -52,7 +53,7 @@ const reducer = handleActions({
       error: null,
     });
   },
-  [USERS_SIGNUP_FAILURE]: (state, action) => {
+  [USERS_SIGNUP_FAILURE]: (state) => {
     return state.merge({
       isSigningUp: false,
       profile: null,
