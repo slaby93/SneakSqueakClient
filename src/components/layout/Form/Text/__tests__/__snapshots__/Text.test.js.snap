@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> HTML 1`] = `
+<div
+  className="test"
+>
+  <Text>
+    TEST
+  </Text>
+</div>
+`;
+
+exports[`<Text /> styling 1`] = `
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.c0:last-child {
+  margin-bottom: 2px;
+}
+
+.c0:after {
+  content: '';
+  margin-top: 5px;
+  text-transform: capitalize;
+  color: red;
+}
+
+.c0 .Elements__Text-eFTrgv {
+  font-size: 17px;
+  height: 50px;
+  border: 1px solid #dedede;
+  border-radius: 1px;
+  padding: 0 10px;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+}
+
+.c0 .Elements__Text-eFTrgv::-webkit-input-placeholder {
+  color: #a9a9a9;
+}
+
+.c0 .Elements__Text-eFTrgv::-moz-placeholder {
+  color: #a9a9a9;
+}
+
+.c0 .Elements__Text-eFTrgv:-ms-input-placeholder {
+  color: #a9a9a9;
+}
+
+.c0 .Elements__Text-eFTrgv::placeholder {
+  color: #a9a9a9;
+}
+
+<TextInput
+  className="test c0"
+>
+  TEST
+</TextInput>
+`;

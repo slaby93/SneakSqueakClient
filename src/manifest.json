@@ -4,8 +4,8 @@
   "start_url": "/",
   "author":"Daniel Słaby",
   "display": "standalone",
-  "background_color": "#f7f8f9",
-  "theme_color": "#db5945",
+  "background_color": "#ffe259",
+  "theme_color": "#ffe259",
   "description": "Find your teammates and enjoy sport!",
   "icons": [
     {

@@ -1,28 +1,37 @@
-import React from 'react'
-import styled from 'styled-components'
-import {
-  Link
-} from 'react-router-dom'
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Button from './../../components/layout/generic/Button';
+import Header from './../../components/layout/generic/Header';
 
 export const App = class extends React.PureComponent {
-  parseUsers (users) {
-    return users && users.map((item) =>
-      <p key={item.get('id')}>{item.get('name')}</p>
-    )
-  }
+  render() {
+    const { className } = this.props;
 
-  render () {
-    const { className, fetchUsers, isRequesting, users } = this.props
     return (
-      <div>
-
+      <div className={className}>
+        <Header>Sneak Squeak</Header>
+        <Button>
+          <Link to="/authorize">
+          JOIN US NOW
+          </Link>
+        </Button>
       </div>
-    )
+    );
   }
-}
+};
 
 const StyledComponent = styled(App)`
-background-color: pink;
-`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
 
-export default StyledComponent
+  margin-top: 5%;
+
+  h1 {
+    margin-bottom: 10%;
+  }
+`;
+
+export default StyledComponent;

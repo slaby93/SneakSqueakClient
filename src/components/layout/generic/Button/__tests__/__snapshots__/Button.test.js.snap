@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 2px;
+  border-color: #c1c1c1;
+  padding: 10px;
+  color: black;
+  background-color: white;
+  height: 50px;
+  box-shadow: 0px 1px 8px 1px #dedede;
+  -webkit-transition: all .5s ease-out,opacity .5s ease-out;
+  transition: all .5s ease-out,opacity .5s ease-out;
+  outline: none;
+  cursor: pointer;
+}
+
+.c0:active {
+  box-shadow: 2px 2px 7px 0px #9e9d9d;
+}
+
+.c0:hover:not(:active) {
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
+<button
+  className="test c0"
+  value="a"
+>
+  TEST
+</button>
+`;

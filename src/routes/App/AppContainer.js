@@ -1,28 +1,24 @@
-import React from 'react'
-import App from './App'
-import {connect} from 'react-redux'
-import {FETCH_USERS_REQUEST} from './../../ducks/users'
+import React from 'react';
+import App from './App';
+import { connect } from 'react-redux';
 
 const AppContainer = (props) => {
-  return <App {...props} />
-}
+  return <App {...props} />;
+};
 
-function mapStateToProps (state) {
-  const isRequesting = state.getIn(['users', 'isRequesting'])
-  const users = state.getIn(['users', 'users'])
+function mapStateToProps(state) {
+  const isRequesting = state.getIn(['users', 'isRequesting']);
+  const users = state.getIn(['users', 'users']);
 
   return {
     isRequesting,
-    users
-  }
+    users,
+  };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-    fetchUsers: () => {
-      dispatch(FETCH_USERS_REQUEST())
-    }
-  }
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

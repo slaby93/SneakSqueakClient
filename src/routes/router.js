@@ -1,18 +1,23 @@
-import React from 'react'
+import React from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
-  Route
-} from 'react-router-dom'
-import App from './App'
+} from 'react-router-dom';
+
+import App from './App';
+import Authorize from './Authorize';
+import Dashboard from './Dashboard';
+import GlobalWrapper from './GlobalWrapper';
+import ProtectedRoute from './ProtectedRoute';
+import GuestRoute from './GuestRoute';
 
 export default () => {
   return (
-    <Router>
+    <GlobalWrapper>
       <Switch>
-        <Route exact path='/' component={App} />
-        <Route exact path='/a' component={() => <span>TEST</span>} />
+        <GuestRoute exact path="/" component={App} />
+        <GuestRoute path="/authorize" component={Authorize} />
+        <ProtectedRoute path="/dashboard" component={Dashboard} />
       </Switch>
-    </Router>
-  )
-}
+    </GlobalWrapper>
+  );
+};

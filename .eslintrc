@@ -1,0 +1,52 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": ["react", "import", "jest"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "max-len": ["error", 120],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "__REDUX_DEVTOOLS_EXTENSION__",
+          "__REDUX_DEVTOOLS_EXTENSION__"
+        ]
+      }
+    ],
+    "no-use-before-define": "warn",
+    "import/no-extraneous-dependencies": "off",
+    "class-methods-use-this": "off",
+    "consistent-return": "off",
+    "react/require-default-props": "off",
+    "no-param-reassign":"off",
+    "func-names":"off",
+    "no-shadow":"off",
+    "prefer-promise-reject-errors":"off",
+    "react/forbid-prop-types": 0,
+    "jsx-a11y/href-no-hash": 0,
+    "import/no-named-as-default": 0,
+    "newline-before-return": 2,
+    "semi": "error",
+    "prefer-destructuring": "off",
+    "arrow-body-style": 0,
+    "react/jsx-no-bind": 0,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error",
+    "no-debugger": "off"
+  },
+  "globals": {
+    "fetch": true,
+    "navigator": true,
+    "Headers": true,
+    "window": true,
+    "document": true,
+    "URLSearchParams": true,
+    "XMLHttpRequest": true
+  },
+  "env": {
+    "jest": true
+  }
+}

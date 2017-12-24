@@ -1,30 +1,28 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
+import FullScreenLoader from './../../components/general/FullScreenLoader';
 
 export default class AsyncComponent extends PureComponent {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-      Component: null
-    }
+      Component: null,
+    };
   }
 
-  componentWillMount () {
+  componentWillMount() {
     if (!this.state.Component) {
       this.props.moduleProvider().then((Component) => {
-        this.setState({ Component: Component.default })
-      })
+        this.setState({ Component: Component.default });
+      });
     }
   }
 
-  render () {
-    const { Component } = this.state
+  render() {
+    const { Component } = this.state;
 
-    // The magic happens here!
     return (
-      <div>
-        {Component ? <Component /> : <span>Loading</span>}
-      </div>
-    )
+      Component ? <Component {...this.props} /> : <FullScreenLoader />
+    );
   }
-};
+}
