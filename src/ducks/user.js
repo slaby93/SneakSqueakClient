@@ -11,6 +11,7 @@ export const USERS_SIGNUP_FAILURE = createAction('USER/SIGNUP/FAILURE');
 
 export const USERS_TOKEN_LOAD = createAction('USER/TOKEN/LOAD');
 export const USERS_TOKEN_SET = createAction('USER/TOKEN/SET');
+export const USERS_TOKEN_REMOVE = createAction('USER/TOKEN/REMOVE');
 
 
 export const USERS_LOGOUT = createAction('USER/LOGOUT');
@@ -69,6 +70,11 @@ const reducer = handleActions({
   [USERS_TOKEN_SET]: (state, { payload: { token } }) => {
     return state.merge({
       token,
+    });
+  },
+  [USERS_TOKEN_REMOVE]: (state) => {
+    return state.merge({
+      token: null,
     });
   },
 }, defaultState);

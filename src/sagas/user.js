@@ -11,6 +11,7 @@ import {
   USERS_TOKEN_LOAD,
   USERS_TOKEN_SET,
   USERS_LOGOUT,
+  USERS_TOKEN_REMOVE,
 } from './../ducks/user';
 import notificationManager from './../utils/notificationManager';
 import localStorageManager from './../utils/localStorageManager';
@@ -63,6 +64,7 @@ export function* register({
 
 export function* logout() {
   localStorageManager.remove(TOKEN);
+  yield put(USERS_TOKEN_REMOVE());
   yield put(push('/'));
 }
 
