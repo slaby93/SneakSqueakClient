@@ -25,6 +25,11 @@ export function* login({ payload: { login, password } }) {
     const { token, success } = yield response.json();
     if (!success) {
       yield put(USERS_LOGIN_FAILURE('Invalid data'));
+      notificationManager.show({
+        text: 'Provided credentials are incorrect',
+        layout: 'topRight',
+        type: 'error',
+      });
 
       return;
     }
@@ -33,13 +38,16 @@ export function* login({ payload: { login, password } }) {
       text: 'Login success',
       layout: 'topRight',
       type: 'success',
-      timeout: 1200,
-      progressBar: true,
     });
     yield put(push('/dashboard'));
     yield put(USERS_LOGIN_SUCCESS({ token }));
   } catch (error) {
     yield put(USERS_LOGIN_FAILURE(error));
+    notificationManager.show({
+      text: 'Unable to connect to server',
+      layout: 'topRight',
+      type: 'error',
+    });
   }
 }
 
@@ -53,11 +61,26 @@ export function* register({
     const response = yield fetch(`http://0.0.0.0:83/user/register?userName=${nick}&userPassword=${password}`, {
       method: 'GET',
     });
-    const users = yield response.json();
-    yield put(USERS_SIGNUP_SUCCESS({ users }));
+    const { success, token } = yield response.json();
+    if (!success) {
+      yield put(USERS_SIGNUP_FAILURE({ message: 'User already exists' }));
+      notificationManager.show({
+        text: 'User already exists',
+        layout: 'topRight',
+        type: 'error',
+      });
+
+      return;
+    }
+    yield put(USERS_SIGNUP_SUCCESS({ token }));
     yield put(USERS_LOGIN_REQUEST({ login: nick, password }));
   } catch (error) {
     yield put(USERS_SIGNUP_FAILURE(error));
+    notificationManager.show({
+      text: 'Unable to connect to server',
+      layout: 'topRight',
+      type: 'error',
+    });
   }
 }
 
