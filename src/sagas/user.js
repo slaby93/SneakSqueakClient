@@ -8,6 +8,8 @@ import {
   USERS_SIGNUP_REQUEST,
   USERS_SIGNUP_SUCCESS,
   USERS_SIGNUP_FAILURE,
+  USERS_TOKEN_LOAD,
+  USERS_TOKEN_SET,
 } from './../ducks/user';
 import notificationManager from './../utils/notificationManager';
 import localStorageManager from './../utils/localStorageManager';
@@ -58,9 +60,18 @@ export function* register({
   }
 }
 
+
+export function* loadToken() {
+  const token = localStorageManager.get(TOKEN);
+  if (token) {
+    yield put(USERS_TOKEN_SET({ token }));
+  }
+}
+
 export default function* watcher() {
   yield all([
     takeLatest(USERS_LOGIN_REQUEST, login),
     takeLatest(USERS_SIGNUP_REQUEST, register),
+    takeLatest(USERS_TOKEN_LOAD, loadToken),
   ]);
 }

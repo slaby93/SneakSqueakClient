@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 export class GlobalWrapper extends React.Component {
+  componentDidMount() {
+    const { loadTokenToRedux } = this.props;
+    loadTokenToRedux();
+  }
+
   render() {
     const { className, children } = this.props;
 

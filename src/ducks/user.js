@@ -9,6 +9,9 @@ export const USERS_SIGNUP_REQUEST = createAction('USER/SIGNUP/REQUEST');
 export const USERS_SIGNUP_SUCCESS = createAction('USER/SIGNUP/SUCCESS');
 export const USERS_SIGNUP_FAILURE = createAction('USER/SIGNUP/FAILURE');
 
+export const USERS_TOKEN_LOAD = createAction('USER/TOKEN/LOAD');
+export const USERS_TOKEN_SET = createAction('USER/TOKEN/SET');
+
 const defaultState = fromJS({
   isLogging: false,
   isSigningUp: false,
@@ -58,6 +61,11 @@ const reducer = handleActions({
       isSigningUp: false,
       profile: null,
       error: 'Error during logging',
+    });
+  },
+  [USERS_TOKEN_SET]: (state, { payload: { token } }) => {
+    return state.merge({
+      token,
     });
   },
 }, defaultState);

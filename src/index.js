@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './store/store';
 import Router from './routes/router';
-import './gloablStyles';
+import './globalStyles';
 import { NODE_ENV, ENVIROMENTS } from './consts/environment';
 
 ReactDOM.render(

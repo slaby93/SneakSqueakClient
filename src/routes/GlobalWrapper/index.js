@@ -1,1 +1,1 @@
-export { default } from './GlobalWrapper';
+export { default } from './GlobalWrapperContainer';
