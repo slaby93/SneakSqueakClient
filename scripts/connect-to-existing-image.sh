@@ -1,0 +1,1 @@
+docker exec -it sneaksqueak_web-client-service.1.5n72abw3yjjbau0zzmtki7rsg /bin/bash

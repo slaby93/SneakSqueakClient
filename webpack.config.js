@@ -2,10 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HappyPack = require('happypack');
+const extend = require('util')._extend;
 
 const NODE_ENV = JSON.stringify(process.env.NODE_ENV || 'production');
 const JS_ENV = JSON.stringify(process.env.NODE_ENV || 'production');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const ENV_DEVELOPMENT = require('./env.development');
+const ENV_PRODUCTION = require('./env.production');
 
 console.log('Using NODE_ENV:', NODE_ENV);
 console.log('Using JS_ENV:', JS_ENV);
@@ -88,10 +92,7 @@ const defaultConfig = {
       },
     ]),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV,
-        JS_ENV,
-      },
+      'process.env': extend({ NODE_ENV, JS_ENV }, ENV_DEVELOPMENT),
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
@@ -126,10 +127,7 @@ const prodConfig = {
       threads: 4,
     }),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV,
-        JS_ENV,
-      },
+      'process.env': extend({ NODE_ENV, JS_ENV }, ENV_PRODUCTION),
     }),
     new CopyWebpackPlugin([
       {

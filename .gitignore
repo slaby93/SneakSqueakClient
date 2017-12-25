@@ -3,3 +3,4 @@ dist
 coverage
 server/public
 .vscode
+env.development.js

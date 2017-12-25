@@ -16,10 +16,11 @@ import {
 import notificationManager from './../utils/notificationManager';
 import localStorageManager from './../utils/localStorageManager';
 import { TOKEN } from './../consts/localStorageKeys';
+import { REACT_APP_API } from './../consts/environment';
 
 export function* login({ payload: { login, password } }) {
   try {
-    const response = yield fetch(`http://0.0.0.0:83/user/authorize?userName=${login}&userPassword=${password}`, {
+    const response = yield fetch(`${REACT_APP_API}/user/authorize?userName=${login}&userPassword=${password}`, {
       method: 'GET',
     });
     const { token, success } = yield response.json();
@@ -58,7 +59,7 @@ export function* register({
   },
 }) {
   try {
-    const response = yield fetch(`http://0.0.0.0:83/user/register?userName=${nick}&userPassword=${password}`, {
+    const response = yield fetch(`${REACT_APP_API}/user/register?userName=${nick}&userPassword=${password}`, {
       method: 'GET',
     });
     const { success, token } = yield response.json();

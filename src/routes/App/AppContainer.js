@@ -1,6 +1,6 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import App from './App';
-import { connect } from 'react-redux';
 
 const AppContainer = (props) => {
   return <App {...props} />;
