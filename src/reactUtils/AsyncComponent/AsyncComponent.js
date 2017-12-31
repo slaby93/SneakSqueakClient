@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import FullScreenLoader from './../../components/general/FullScreenLoader';
+import FullScreenLoader from './../../components/special/FullScreenLoader';
 
 export default class AsyncComponent extends PureComponent {
   constructor(props) {

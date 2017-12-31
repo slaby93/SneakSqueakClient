@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import localStorageManager from './../utils/localStorageManager';
 
-export const ProtectedRoute = ({
+export const GuestRoute = ({
   isLoggedIn, component: Component, ...rest
 }) => {
   const getProperComponent = (props) => {
@@ -18,7 +18,7 @@ export const ProtectedRoute = ({
   return <Route {...rest} render={getProperComponent} />;
 };
 
-ProtectedRoute.propTypes = {
+GuestRoute.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   component: PropTypes.func.isRequired,
 };
@@ -36,4 +36,4 @@ export function mapDispatchToProps() {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProtectedRoute);
+export default connect(mapStateToProps, mapDispatchToProps)(GuestRoute);

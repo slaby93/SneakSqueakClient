@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Form } from './../../../../components/layout/Form';
+import { Form } from './../../../../components/form/RawElements';
+import Text from './../../../../components/form/Text';
 import canSubmit from './../../../../utils/form/canSubmit';
-import Header from './.../../../../../../components/layout/generic/Header';
-import Button, { LinkButton } from './../.../../../../../components/layout/generic/Button';
-import Loader from './../../../../components/general/Loader';
+import Header from './../../../../components/elements/Header';
+import Button, { LinkButton } from './../../../../components/elements/Button';
+import Loader from './../../../../components/special/Loader';
 import * as fieldsValidator from './../../../../utils/form/fieldsValidator';
 
 export class SignUp extends React.PureComponent {

@@ -7,11 +7,6 @@ export const DashboardContainer = (props) => {
   return (<Dashboard {...props} />);
 };
 
-function mapStateToProps(state) {
-  return {
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     logout: () => {
@@ -20,4 +15,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);
+export default connect(null, mapDispatchToProps)(DashboardContainer);
