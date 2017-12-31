@@ -6,10 +6,11 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import ShadowWrapper from 'components/layout/ShadowWrapper';
 import Welcome from './components/Welcome';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import ShadowWrapper from './../../components/layout/ShadowWrapper';
+
 
 export const Authorize = ({ className, match, location }) => {
   return (<div className={className}>

@@ -52,6 +52,10 @@ const commonModule = {
 };
 
 const resolve = {
+  modules: [
+    path.resolve('./src'),
+    path.resolve('node_modules'),
+  ],
   alias: {
     styledComponentsSerilizeHelper: path.resolve(__dirname, 'src/utils/testing/styledComponentsSerilizeHelper.js'),
   },

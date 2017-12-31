@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Button from './../../components/elements/Button';
-import Header from './../../components/elements/Header';
+import Button from 'components/elements/Button';
+import Header from 'components/elements/Header';
 
 export const App = class extends React.PureComponent {
   render() {
