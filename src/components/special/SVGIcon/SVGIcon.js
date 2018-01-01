@@ -44,8 +44,9 @@ const StyledComponent = styled(Icon)`
     width: ${prop('width', '20')}px;
 
   ${ifProp('size', css`
-      height: ${prop('size')}px;
-      width: ${prop('size')}px;
+      --size: ${prop('size')}px;
+      height: var(--size);
+      width: var(--size);
   `)}
 
   ${ifProp('color', css`
