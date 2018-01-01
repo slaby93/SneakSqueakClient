@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { prop, ifProp } from 'styled-tools';
 import SVGIcon from 'components/special/SVGIcon';
 import menuIcon from 'resources/icons/menu.svg';
+import crossIcon from 'resources/icons/cross.svg';
 import profileDefaultImage from 'resources/images/profile_default.png';
 import MobileMenu from 'components/special/MobileMenu';
 
@@ -13,7 +14,20 @@ export const Header = ({
 }) => {
   return [
     <div key="header" className={className}>
-      <SVGIcon src={menuIcon} size={35} onClick={toggleMobileMenu} />
+      {
+        isMobileMenuVisible
+        ? <SVGIcon
+          src={crossIcon}
+          size={30}
+          onClick={toggleMobileMenu}
+        />
+      : <SVGIcon
+        src={menuIcon}
+        size={35}
+        onClick={toggleMobileMenu}
+      />
+      }
+
       <ProfileBox src={profileDefaultImage} />
     </div>,
     <MobileMenu
@@ -44,17 +58,20 @@ const StyledComponent = styled(Header)`
     grid-area: menu;
     align-self: center;
     justify-self: center;
+    pointer-events: all;
   }
 
   ${ProfileBox} {
     grid-area: profile;
     align-self: center;
     justify-self: center;
+    pointer-events: all;
   }
 
   ${ifProp('transparent', css`
     box-shadow: initial;
     background-color: transparent;
+    pointer-events: none;
   `)}
 `;
 

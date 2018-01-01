@@ -21,7 +21,6 @@ export class HeaderContainer extends React.PureComponent {
 
   render() {
     const { isMobileMenuVisible } = this.state;
-    console.log('isMobileMenuVisible', isMobileMenuVisible);
 
     return (<Header
       {...this.props}
@@ -38,9 +37,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onToggleMobileMenu: () => {
-      console.log('TOGGLE MOBILE MENU');
-    },
   };
 }
 

@@ -22,16 +22,17 @@ const StyledComponent = styled(MobileMenu)`
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: #f7f7f7d4;
+  background-color: rgba(247, 247, 247, 0.83);
   color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  transition: all .2s linear;
+  justify-content: space-between;
+  transition: all .3s linear;
   top: -100vh;
   z-index: 2;
   ${ifProp('visible', css`
       top: 0;
+      padding-top: ${prop('theme.components.header.height')}px;
   `)}
 `;
 

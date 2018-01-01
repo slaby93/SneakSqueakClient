@@ -5,7 +5,7 @@ export default {
   },
   components: {
     header: {
-      height: 50,
+      height: 70,
     },
   },
 };
