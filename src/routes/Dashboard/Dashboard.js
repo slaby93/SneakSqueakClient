@@ -23,6 +23,7 @@ const StyledComponent = styled(Dashboard)`
   flex-grow: 1;
 
   .mapboxgl-ctrl-top-right {
+    z-index: 1;
     top: ${prop('theme.components.header.height')}px;
   }
 

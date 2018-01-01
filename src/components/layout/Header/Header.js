@@ -4,13 +4,23 @@ import { prop, ifProp } from 'styled-tools';
 import SVGIcon from 'components/special/SVGIcon';
 import menuIcon from 'resources/icons/menu.svg';
 import profileDefaultImage from 'resources/images/profile_default.png';
+import MobileMenu from 'components/special/MobileMenu';
 
-export const Header = ({ className, onToggleMobileMenu }) => {
-  return (
-    <div className={className}>
-      <SVGIcon src={menuIcon} size={35} onClick={onToggleMobileMenu} />
+export const Header = ({
+  className,
+  toggleMobileMenu,
+  isMobileMenuVisible,
+}) => {
+  return [
+    <div key="header" className={className}>
+      <SVGIcon src={menuIcon} size={35} onClick={toggleMobileMenu} />
       <ProfileBox src={profileDefaultImage} />
-    </div>);
+    </div>,
+    <MobileMenu
+      key="mobileMenu"
+      visible={isMobileMenuVisible}
+    />,
+  ];
 };
 
 const ProfileBox = styled.img`
@@ -21,7 +31,7 @@ const ProfileBox = styled.img`
 const StyledComponent = styled(Header)`
   position: sticky;
   top: 0px;
-  z-index: 2;
+  z-index: 3;
   height: ${prop('theme.components.header.height')}px;
   display: grid;
   grid-template-areas: "menu empty profile";

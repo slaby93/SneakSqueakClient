@@ -11,7 +11,13 @@ export class GlobalWrapper extends React.Component {
   render() {
     const { className, children } = this.props;
 
-    return <ThemeProvider theme={theme} className={className} >{children}</ThemeProvider>;
+    return (
+      <div className={className}>
+        <ThemeProvider theme={theme}>
+          {children}
+        </ThemeProvider>
+      </div>
+    );
   }
 }
 
