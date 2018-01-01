@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import logo from './../../../../resources/icons/shoes.svg';
-import SVGIcon from './../../../../components/general/SVGIcon';
-import Button, { LinkButton } from './../../../../components/layout/generic/Button';
+import SVGIcon from './../../../../components/special/SVGIcon';
+import Button, { LinkButton } from './../../../../components/elements/Button';
 import GoogleGIcon from './../../../../resources/icons/Google__G__Logo.svg';
 import FacebookIcon from './../../../../resources/icons/facebook-F-logo.svg';
-import Header from './.../../../../../../components/layout/generic/Header';
+import Header from './../../../../components/elements/Header';
 
 export const Welcome = ({ className }) => {
   return (

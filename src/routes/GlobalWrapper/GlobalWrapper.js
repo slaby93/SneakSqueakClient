@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import theme from 'themes/default';
 
 export class GlobalWrapper extends React.Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ export class GlobalWrapper extends React.Component {
   render() {
     const { className, children } = this.props;
 
-    return <div className={className} >{children}</div>;
+    return <ThemeProvider theme={theme} className={className} >{children}</ThemeProvider>;
   }
 }
 

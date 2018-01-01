@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Button from './../../components/layout/generic/Button';
-import Header from './../../components/layout/generic/Header';
+import Button from 'components/elements/Button';
+import Header from 'components/elements/Header';
 
 export const App = class extends React.PureComponent {
   render() {
@@ -13,7 +13,7 @@ export const App = class extends React.PureComponent {
         <Header>Sneak Squeak</Header>
         <Button>
           <Link to="/authorize">
-          JOIN US NOW
+            JOIN US NOW
           </Link>
         </Button>
       </div>

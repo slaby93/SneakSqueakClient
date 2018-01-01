@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Form } from './../../../../components/layout/Form';
-import canSubmit from './../../../../utils/form/canSubmit';
-import Button, { LinkButton } from './../../../../components/layout/generic/Button';
-import Header from './../../../../components/layout/generic/Header';
-import Loader from './../../../../components/general/Loader';
+import canSubmit from 'utils/form/canSubmit';
+import { Form } from 'components/form/RawElements';
+import Text from 'components/form/Text';
+import Button, { LinkButton } from 'components/elements/Button';
+import Header from 'components/elements/Header';
+import Loader from 'components/special/Loader';
 
 export class Login extends React.PureComponent {
   errorValidator = (values) => {
