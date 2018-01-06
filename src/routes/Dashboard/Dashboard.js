@@ -10,27 +10,32 @@ import DashboardList from './DashboardList';
 import DashboardMap from './DashboardMap';
 
 export const Dashboard = ({
-  className, logout, onModeChange, mapMode,
+  className,
+  logout,
+  onModeChange,
+  mapMode,
+  offers,
 }) => {
   return (
     <div className={className} >
       <Header transparent />
       {
         mapMode
-        ? <DashboardMap />
-        : <DashboardList />
+        ? <DashboardMap offers={offers} />
+        : <DashboardList offers={offers} />
       }
 
-      <Button
-        round
-        text
+      <IconWrapper
         onClick={onModeChange}
       >
         <SVGIcon size={60} src={mapMode ? listIcon : mapIcon} />
-      </Button>
+      </IconWrapper>
     </div>
   );
 };
+
+const IconWrapper = styled.div`
+`;
 
 const StyledComponent = styled(Dashboard)`
   display: grid;
@@ -50,7 +55,7 @@ const StyledComponent = styled(Dashboard)`
     grid-area: header;
   }
 
-  ${Button}{
+  ${IconWrapper}{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);

@@ -52,7 +52,7 @@ const StyledComponent = styled(Header)`
   grid-template-columns: 60px auto minmax(70px, max-content);
   align-items: center;
   box-shadow: 0px 0px 15px 0px #9e9e9e;
-  background-color: ${prop('theme.colors.darkWhite')};
+  background-color: ${prop('theme.color.darkWhite')};
 
   ${SVGIcon} {
     grid-area: menu;
