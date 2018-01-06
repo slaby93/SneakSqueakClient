@@ -4,7 +4,7 @@
     "stop": "pm2 delete web-client-service",
     "monit": "pm2 monit",
     "pwa": "workbox inject:manifest",
-    "dev": "NODE_ENV=\"development\" JS_ENV=\"development\" concurrently \"webpack-dev-server --host 0.0.0.0 --port 3000 --historyApiFallback\" \"styleguidist server\" -n \"webpack,styleuide\"",
+    "dev": "NODE_ENV=\"development\" JS_ENV=\"development\" concurrently \"webpack-dev-server --host 0.0.0.0 --port 3000 --historyApiFallback\" \"styleguidist server\" -n \"webpack,styleuide\"  -c \"bgBlue.bold,bgGreen.bold\"",
     "build": "webpack",
     "build-image": "sudo docker build -t web-client-service .",
     "run-image": "sudo docker run -p 3000:3000 web-client-service",

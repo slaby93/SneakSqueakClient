@@ -1,14 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 import { prop } from 'styled-tools';
-import Map from 'components/special/Map';
 import Header from 'components/layout/Header';
+import Button from 'components/elements/Button';
+import SVGIcon from 'components/special/SVGIcon';
+import listIcon from 'resources/icons/list.svg';
+import mapIcon from 'resources/icons/map.svg';
+import DashboardList from './DashboardList';
+import DashboardMap from './DashboardMap';
 
-export const Dashboard = ({ className, logout }) => {
+export const Dashboard = ({
+  className, logout, onModeChange, mapMode,
+}) => {
   return (
     <div className={className} >
       <Header transparent />
-      <Map />
+      {
+        mapMode
+        ? <DashboardMap />
+        : <DashboardList />
+      }
+
+      <Button
+        round
+        text
+        onClick={onModeChange}
+      >
+        <SVGIcon size={60} src={mapMode ? listIcon : mapIcon} />
+      </Button>
     </div>
   );
 };
@@ -31,9 +50,12 @@ const StyledComponent = styled(Dashboard)`
     grid-area: header;
   }
 
-  ${Map} {
-    margin-top: -${prop('theme.components.header.height')}px;
-    grid-area: body;
+  ${Button}{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    padding: 0;
   }
 `;
 

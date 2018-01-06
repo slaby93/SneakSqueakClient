@@ -36,4 +36,7 @@ module.exports = {
       components: 'src/components/special/**/index.js',
     },
   ],
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'lib/styleguide/Wrapper'),
+  },
 };

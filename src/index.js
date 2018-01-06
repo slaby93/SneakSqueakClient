@@ -29,9 +29,9 @@ function installServiceWorker() {
   window.addEventListener('load', async () => {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js');
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      console.info('ServiceWorker registration successful with scope: ', registration.scope);
     } catch (err) {
-      console.log('ServiceWorker registration failed: ', err);
+      console.error('ServiceWorker registration failed: ', err);
     }
   });
 }
