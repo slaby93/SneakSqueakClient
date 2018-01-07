@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { prop } from 'styled-tools';
 import Header from 'components/layout/Header';
-import Button from 'components/elements/Button';
 import SVGIcon from 'components/special/SVGIcon';
 import listIcon from 'resources/icons/list.svg';
 import mapIcon from 'resources/icons/map.svg';

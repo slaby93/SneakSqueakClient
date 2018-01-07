@@ -26,6 +26,12 @@ const Styled = styled(GlobalWrapper)`
   flex-grow: 1;
   height: 100%;
   background-color: white;
+
+  .mapboxgl-popup-content {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
 `;
 
 export default Styled;
