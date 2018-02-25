@@ -70,7 +70,7 @@ const defaultConfig = {
     './src/index.js',
   ],
   output: {
-    path: path.join(__dirname, '/server/public'),
+    path: path.join(__dirname, '/dist/dashboard'),
     chunkFilename: '[name].chunk.js',
     filename: 'bundle.js',
     publicPath: '/',
@@ -115,7 +115,7 @@ const prodConfig = {
     './src/index.js',
   ],
   output: {
-    path: path.join(__dirname, '/server/public'),
+    path: path.join(__dirname, '/dist/dashboard'),
     chunkFilename: '[name].chunk.js',
     filename: 'bundle.js',
     publicPath: '/',

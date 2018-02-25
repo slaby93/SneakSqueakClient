@@ -8,7 +8,7 @@ export class DashboardContainer extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      mapMode: true,
+      mapMode: false,
     };
     this.onMapModeChange = this.onMapModeChange.bind(this);
 
