@@ -1,17 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 import { prop } from 'styled-tools';
-import Map from 'components/special/Map';
 import Header from 'components/layout/Header';
+import SVGIcon from 'components/special/SVGIcon';
+import listIcon from 'resources/icons/list.svg';
+import mapIcon from 'resources/icons/map.svg';
+import DashboardList from './DashboardList';
+import DashboardMap from './DashboardMap';
 
-export const Dashboard = ({ className, logout }) => {
+export const Dashboard = ({
+  className,
+  logout,
+  onModeChange,
+  mapMode,
+  offers,
+}) => {
   return (
     <div className={className} >
       <Header transparent />
-      <Map />
+      {
+        mapMode
+        ? <DashboardMap offers={offers} />
+        : <DashboardList offers={offers} />
+      }
+
+      <IconWrapper
+        onClick={onModeChange}
+      >
+        <SVGIcon size={60} src={mapMode ? listIcon : mapIcon} />
+      </IconWrapper>
     </div>
   );
 };
+
+const IconWrapper = styled.div`
+`;
 
 const StyledComponent = styled(Dashboard)`
   display: grid;
@@ -23,6 +46,7 @@ const StyledComponent = styled(Dashboard)`
   flex-grow: 1;
 
   .mapboxgl-ctrl-top-right {
+    z-index: 1;
     top: ${prop('theme.components.header.height')}px;
   }
 
@@ -30,9 +54,12 @@ const StyledComponent = styled(Dashboard)`
     grid-area: header;
   }
 
-  ${Map} {
-    margin-top: -${prop('theme.components.header.height')}px;
-    grid-area: body;
+  ${IconWrapper}{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    padding: 0;
   }
 `;
 

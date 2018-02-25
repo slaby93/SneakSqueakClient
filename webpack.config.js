@@ -152,7 +152,13 @@ const prodConfig = {
       },
     ]),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false,
+        comparisons: false, // don't optimize comparisons
+      },
+    }),
   ],
 };
 

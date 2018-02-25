@@ -13,7 +13,7 @@ const StyledComponent = styled.button`
   padding: 10px;
   color:  ${prop('color', 'black')};
   background-color:  ${prop('bgColor', 'white')};
-  height: 50px;
+  min-height: 50px;
   box-shadow: 0px 1px 8px 1px #dedede;
   transition: all .5s ease-out, opacity .5s ease-out;
   outline: none;
@@ -30,6 +30,9 @@ const StyledComponent = styled.button`
   ${ifProp('disabled', css`
      cursor: not-allowed;
      opacity: 0.4;
+  `)}
+  ${ifProp('round', css`
+     border-radius: 50%;
   `)}
   ${ifProp('text', css`
       display: inline;

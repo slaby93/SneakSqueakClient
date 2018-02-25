@@ -11,7 +11,13 @@ export class GlobalWrapper extends React.Component {
   render() {
     const { className, children } = this.props;
 
-    return <ThemeProvider theme={theme} className={className} >{children}</ThemeProvider>;
+    return (
+      <div className={className}>
+        <ThemeProvider theme={theme}>
+          {children}
+        </ThemeProvider>
+      </div>
+    );
   }
 }
 
@@ -20,6 +26,12 @@ const Styled = styled(GlobalWrapper)`
   flex-grow: 1;
   height: 100%;
   background-color: white;
+
+  .mapboxgl-popup-content {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
 `;
 
 export default Styled;
