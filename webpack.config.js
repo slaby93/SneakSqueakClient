@@ -65,9 +65,9 @@ const defaultConfig = {
   context: path.join(__dirname, '/'),
   devtool: 'inline-source-map',
   target: 'web',
-  mode: NODE_ENV === 'production' ? 'development' : 'production',
+  mode: NODE_ENV === 'production' ? 'production' : 'development',
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     'whatwg-fetch',
     './src/index.js',
   ],
