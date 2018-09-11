@@ -15,7 +15,7 @@ console.log('Using NODE_ENV:', NODE_ENV);
 console.log('Using JS_ENV:', JS_ENV);
 
 const commonModule = {
-  loaders: [
+  rules: [
     {
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
@@ -64,6 +64,8 @@ const resolve = {
 const defaultConfig = {
   context: path.join(__dirname, '/'),
   devtool: 'inline-source-map',
+  target: 'web',
+  mode: NODE_ENV === 'production' ? 'development' : 'production',
   entry: [
     'babel-polyfill',
     'whatwg-fetch',
@@ -152,13 +154,6 @@ const prodConfig = {
       },
     ]),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false,
-        comparisons: false, // don't optimize comparisons
-      },
-    }),
   ],
 };
 
